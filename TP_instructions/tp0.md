@@ -28,7 +28,7 @@ Cela peut prendre 1 à 2 minutes, mais pas plus. Si votre environment ne démarr
 puis faire appel à votre formateur.
 
 Une fois que le serveur est démarré, vous êtes redirigé vers la page principale :
-![HomePage](docs/tp0/homepage.png)
+![HomePage](./images/tp0/homepage.png)
 
 Depuis cette page, vous pouvez ouvrir :
 
@@ -49,7 +49,7 @@ Vous trouverez l'URL de clonage en HTTPS sur github, dans le repo que vous avez 
 
 Pour ouvrir un terminal il faut cliquer sur les 2 barres parallèles en haut à droite puis `terminal`
 puis `new terminal`.
-![bouton clonage](docs/tp0/github-clone-button.png)
+![bouton clonage](./images/tp0/github-clone-button.png)
 
 En tapant la commande `git branch` vous pourrez constater que vous êtes sur la branche `0_initial_state`
 

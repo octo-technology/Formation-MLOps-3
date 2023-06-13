@@ -1,4 +1,5 @@
 import argparse
+import os
 
 import uvicorn
 
@@ -12,5 +13,6 @@ port = int(args.port)
 if __name__ == '__main__':
     # WARNING : Being on 0.0.0.0 is a security issue according to bandit, we escaped the check in CI for now
     # but we should investigate it further.
+    log_ini_path = os.path.join(os.path.dirname(__file__), 'log_config.ini')
 
-    uvicorn.run("source.api.main:app", host="127.0.0.1", port=port, reload=True)
+    uvicorn.run("source.api.main:app", host="127.0.0.1", port=port, reload=True, log_config=log_ini_path)

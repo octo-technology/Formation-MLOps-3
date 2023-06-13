@@ -16,4 +16,4 @@ if __name__ == '__main__':
     log_ini_path = os.path.join(os.path.dirname(__file__), 'log_config.ini')
     code_dir = os.path.dirname(__file__)
     uvicorn.run("source.api.main:app", host="127.0.0.1", port=port, reload=True, log_config=log_ini_path,
-                reload_dirs=code_dir)
+                reload_dirs=code_dir, reload_excludes="*.log")

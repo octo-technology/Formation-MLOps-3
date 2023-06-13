@@ -1,4 +1,6 @@
 fastapi==0.96
 pandas==2.0.2
 scikit-learn==1.2.2
- uvicorn==0.22.0
+uvicorn==0.22.0
+joblib==1.2.0
+locust==2.15.1

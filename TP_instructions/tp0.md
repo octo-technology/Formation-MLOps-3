@@ -93,7 +93,6 @@ relancerons l'API.
 
 Les logs de l'API sont visibles dans `/home/jovyan/api_logfile.log`
 
-
 ## Lien vers le TP suivant
 
 Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp1#0)

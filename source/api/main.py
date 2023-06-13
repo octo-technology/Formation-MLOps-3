@@ -1,9 +1,22 @@
+import configparser
+
 import pandas as pd
 from fastapi import FastAPI
 
 from source.domain.train_model import train_model, Education, predict_model, DataSetColumns
 
-app = FastAPI()
+# Specific code to run on dslab
+config = configparser.ConfigParser()
+config.read('api_conf.ini')
+server_address = config['server']['address']
+# End of specific code
+
+app = FastAPI(root_path=server_address)
+
+
+@app.get("/")
+def root():
+    return {'Message': 'API server working fine, you can get swagger on /docs.'}
 
 
 @app.get("/health")

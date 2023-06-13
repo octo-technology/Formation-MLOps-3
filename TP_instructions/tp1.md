@@ -16,7 +16,7 @@ Durée : 5 minutes
 ## Essayer l'API
 Durée : 5 minutes
 
-Essayer l'API, dans votre terminal réaliser un curl en remplaçant les ... pour mettre un niveau d'education (exemple :
+Essayer l'API, dans votre terminal réaliser un curl en remplaçant les ... pour mettre un niveau d'éducation (exemple :
 PhD) et un age.
 
 ```shell

@@ -3,7 +3,9 @@ import configparser
 import pandas as pd
 from fastapi import FastAPI
 
-from source.domain.train_model import train_model, Education, predict_model, DataSetColumns
+from source.domain.usecase.train_model import train_model, Education, DataSetColumns
+from source.domain.usecase.predict_model import predict_model
+from source.infrastructure.file_system_model_handler import FilSystemModelHandler
 
 # Specific code to run on dslab
 config = configparser.ConfigParser()
@@ -12,6 +14,8 @@ server_address = config['server']['address']
 # End of specific code
 
 app = FastAPI(root_path=server_address)
+
+MODEL_HANDLER = FilSystemModelHandler()
 
 
 @app.get("/")
@@ -26,7 +30,7 @@ def health():
 
 @app.post("/train")
 def train():
-    performance_train, performance_test = train_model()
+    performance_train, performance_test = train_model(model_handler=MODEL_HANDLER)
     return {'Train mean_squared_error': performance_train,
             'Test mean_squared_error': performance_test}
 

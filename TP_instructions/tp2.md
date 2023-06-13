@@ -1,5 +1,5 @@
 summary: TP2 - Réaliser un tir de performance sur l'API
-id: tp1
+id: tp2
 status: Published
 authors: OCTO Technology
 Feedback Link: https://github.com/octo-technology/Formation-MLOps-3/issues/new/choose

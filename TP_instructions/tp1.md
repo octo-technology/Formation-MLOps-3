@@ -10,9 +10,16 @@ Feedback Link: https://github.com/octo-technology/Formation-MLOps-3/issues/new/c
 
 Durée : 5 minutes
 
-### À l'issue de cette section, vous aurez découvert
+### À l'issue de ce TP, vous aurez découvert
+
+- L'API de prediction
+- Identifier un bogue sur l'API
+- Identifier la source du bogue dans les logs
+- Rendre les erreurs utilisateurs plus user friendly avec le type hinting
 
 ### Présentation des nouveautés sur la branche de ce TP
+
+TODO
 
 ## Essayer l'API
 

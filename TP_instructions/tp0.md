@@ -12,7 +12,18 @@ Feedback Link: https://github.com/octo-technology/Formation-MLOps-3/issues/new/c
 
 Durée : 15 min
 
-Cette partie permet de préparer l'environnement de travail pour les TPs.
+
+### À l'issue de ce TP, vous aurez découvert
+
+- L'environnement de TP
+- Le repository de code que nous allons utilisé
+- L'interface Swagger
+- Les logs de l'API
+
+### Présentation des nouveautés sur la branche de ce TP
+
+TODO
+
 
 ## Prise en main de Jupyterhub, l'environnement de TP
 

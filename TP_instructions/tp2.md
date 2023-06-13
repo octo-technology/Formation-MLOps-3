@@ -10,6 +10,16 @@ Feedback Link: https://github.com/octo-technology/Formation-MLOps-3/issues/new/c
 
 Durée : 5 minutes
 
+### À l'issue de ce TP, vous aurez découvert
+
+- Locust un framework pour faire des tirs de performance
+- La méthode pour créer des tests de performance
+
+
+### Présentation des nouveautés sur la branche de ce TP
+
+TODO
+
 ## Configuration de votre machine personnel
 
 Pour réaliser ce TP les tirs de performance se feront depuis votre PC personnel.

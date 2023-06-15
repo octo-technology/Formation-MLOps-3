@@ -37,7 +37,9 @@ EDUCATION_LEVEL = pd.DataFrame({
 })
 
 
-# TODO: Ajouter une verification sur l'input et l'output en utilisant les modèles définis
+# TODO: Ajouter une verification sur l'input en utilisant les checks définis
+# TODO: Observer l'erreur, ici le check génère une erreur
+# TODO: Utilise la methode validate pour filtrer les lignes qui ne passent pas les checks et logger ces lignes
 @pa.check_io(raw_customer_df=RawCustomerSchema, out=RawCustomerSchema)
 def prepare_data(raw_customer_df: pa.typing.DataFrame[RawCustomerSchema]):
     raw_customer_df = raw_customer_df.merge(EDUCATION_LEVEL, on=DataSetColumns.education).drop(columns=[DataSetColumns.education])

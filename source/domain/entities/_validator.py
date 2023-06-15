@@ -5,7 +5,7 @@ import pandas as pd
 import pandera as pa
 import wrapt
 
-Schemas = typing.Union[pa.schemas.DataFrameSchema, pa.schemas.SeriesSchema]
+Schemas = typing.Union[pa.DataFrameModel, pa.SeriesSchema]
 
 
 def validate(schema: Schemas, input_df: pd.DataFrame) -> pd.DataFrame:

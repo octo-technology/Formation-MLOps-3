@@ -1,9 +1,10 @@
 import os.path
+from codecarbon import track_emissions
 from enum import Enum
 
 import mlflow.sklearn
 import pandas as pd
-from codecarbon import track_emissions
+import pandera as pa
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
@@ -11,6 +12,7 @@ from sklearn.model_selection import train_test_split
 from data import DATA_PATH
 from models import MODEL_REGISTRY
 from source.domain.port.model_handler import ModelHandler
+from source.domain.entities.customer_data_handler import RawCustomerSchema
 
 MODEL_PATH = os.path.join(MODEL_REGISTRY, 'model.joblib')
 
@@ -36,9 +38,10 @@ EDUCATION_LEVEL = pd.DataFrame({
 
 
 # TODO: Ajouter une verification sur l'input et l'output en utilisant les modèles définis
-def prepare_data(df):
-    df = df.merge(EDUCATION_LEVEL, on=DataSetColumns.education).drop(columns=[DataSetColumns.education])
-    return df
+@pa.check_io(raw_customer_df=RawCustomerSchema, out=RawCustomerSchema)
+def prepare_data(raw_customer_df: pa.typing.DataFrame[RawCustomerSchema]):
+    raw_customer_df = raw_customer_df.merge(EDUCATION_LEVEL, on=DataSetColumns.education).drop(columns=[DataSetColumns.education])
+    return raw_customer_df
 
 
 @track_emissions(project_name='Train model', offline=True, country_iso_code='FRA')

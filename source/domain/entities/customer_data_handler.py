@@ -22,7 +22,6 @@ class RawCustomerSchema(pa.DataFrameModel):
     education: pa.typing.Series[pa.typing.String] = pa.Field(
         alias=CUSTOMER_EDUCATION_COLUMN_NAME,
         coerce=True,
-        isin=CUSTOMER_EDUCATION_VALUES,
     )
     income: pa.typing.Series[pa.typing.Int64] = pa.Field(
         alias=CUSTOMER_INCOME_COLUMN_NAME, coerce=True
@@ -30,12 +29,18 @@ class RawCustomerSchema(pa.DataFrameModel):
     country: pa.typing.Series[pa.typing.String] = pa.Field(
         alias=CUSTOMER_COUNTRY_COLUMN_NAME, coerce=True
     )
+
+    # TODO: Retirer pour l'exemple du TP
+    # TODO: Ajouter le type pour spending préciser le type
+    # TODO: Ajouter un check pour avoir une valeur comprise entre 0 et 1
     purchase_frequency: pa.typing.Series[pa.typing.Float64] = pa.Field(
         alias=CUSTOMER_PURCHASE_FREQUENCY_COLUMN_NAME, coerce=True
     )
-    # TODO: Retirer pour lexemple du TP
-    # TODO: Ajouter le type pour spending préciser le type
-    # TODO: Ajouter un check pour avoir une valeur comprise entre 0 et 1
+
     spending: pa.typing.Series[pa.typing.Float64] = pa.Field(
         alias=CUSTOMER_SPENDING_COLUMN_NAME, coerce=True
     )
+
+    @pa.check("education", name="is_education_valid")
+    def is_education_valid(cls, education: pa.typing.Series[int]) -> pa.typing.Series[bool]:
+        return education in CUSTOMER_EDUCATION_VALUES

@@ -35,6 +35,7 @@ EDUCATION_LEVEL = pd.DataFrame({
 })
 
 
+# TODO: Ajouter une verification sur l'input et l'output en utilisant les modèles définis
 def prepare_data(df):
     df = df.merge(EDUCATION_LEVEL, on=DataSetColumns.education).drop(columns=[DataSetColumns.education])
     return df

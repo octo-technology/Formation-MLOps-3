@@ -12,7 +12,6 @@ Feedback Link: https://github.com/octo-technology/Formation-MLOps-3/issues/new/c
 
 Durée : 15 min
 
-
 ### À l'issue de ce TP, vous aurez découvert
 
 - L'environnement de TP
@@ -23,7 +22,6 @@ Durée : 15 min
 ### Présentation des nouveautés sur la branche de ce TP
 
 TODO
-
 
 ## Prise en main de Jupyterhub, l'environnement de TP
 
@@ -103,6 +101,31 @@ NB : En background, l'API a été lancé en auto reload, ce qui fait que toutes 
 relancerons l'API.
 
 Les logs de l'API sont visibles dans `/home/jovyan/api_logfile.log`
+
+### Pour killer l'API sur l'environnement de TP
+
+Comme l'API est lancé en background sur l'environnement de TP avec un port en particulier, `kill` l'API requiert
+quelques manipulations.
+
+#### Version command line
+Il faut : tuer `uvicorn` avant ses workers. Pour cela :
+
+1. Avec la commande `ps -ef | grep python` trouver le processus qui contient `python3 Formation-MLOps-3/run.py`
+2. Noter le PID (c'est le premier nombre de la ligne)
+3. Exécuter la commande `kill -9 PID` cela va tuer le processus uvicorn qui va essayer de redémarrer, il n'y arrivera
+   pas car le worker utilise encore le port
+4. Trouver le (ou les) worker qui contient `/opt/conda/bin/python3 -c from multiprocessing.spawn import spawn_main;`, le
+   tuer avec `kill -9 PID`
+5. L'API va ainsi redémarrer.
+
+
+#### Version redémarrer le server
+
+L'autre option est de redémarrer votre server de TP :
+1. Cliquer sur File >> Hub Control Panel >> Stop My Server
+2. Start My Server
+
+Tous les process ont été arrêtés.
 
 ## Lien vers le TP suivant
 

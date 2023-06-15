@@ -1,10 +1,11 @@
 import configparser
+import logging
 
 import pandas as pd
 from fastapi import FastAPI
 
-from source.domain.usecase.train_model import train_model, Education, DataSetColumns
 from source.domain.usecase.predict_model import predict_model
+from source.domain.usecase.train_model import train_model, Education, DataSetColumns
 from source.infrastructure.file_system_model_handler import FilSystemModelHandler
 
 # Specific code to run on dslab
@@ -45,4 +46,10 @@ def predict(education: Education, age: int):
     """
     return predict_model(pd.DataFrame({DataSetColumns.education: [education],
                                        DataSetColumns.age: [age]}),
-                         model_handler=MODEL_HANDLER)[0]
+                         )[0]
+
+
+@app.exception_handler(Exception)
+async def global_exception_handler(request, exc):
+    logging.exception(f"Exception {exc} happened on request {request}")
+    raise exc

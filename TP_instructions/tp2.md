@@ -15,7 +15,6 @@ Durée : 5 minutes
 - Locust un framework pour faire des tirs de performance
 - La méthode pour créer des tests de performance
 
-
 ### Présentation des nouveautés sur la branche de ce TP
 
 TODO
@@ -86,8 +85,13 @@ Si vous n'avez pas d'idée voir la section d'après.
 ## Si vous n'avez pas d'idée pour accélérer
 
 Comme idée d'amélioration, nous vous proposons :
+
 1. De charger le modèle au marriage de l'application plutôt qu'à chaque prédiction.
-2. D'augmenter le nombre de worker de votre API. Avec l'argument `workers` de `uvicorn.run`
+2. D'augmenter le nombre de worker de votre API. Avec l'argument `workers` de `uvicorn.run`.
+    - Attention, il faut désactiver auto-reload pour que cela ait un effet.
+    - Attention, les modifications sur le fichier run.py concernent uvicorn, le `reload` n'aura pas d'impact, il faut
+      killer toute l'API.
+   
 
 ## Pour aller plus loin
 

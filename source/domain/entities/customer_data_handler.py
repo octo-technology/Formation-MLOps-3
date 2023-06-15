@@ -8,7 +8,7 @@ CUSTOMER_COUNTRY_COLUMN_NAME = "country"
 CUSTOMER_PURCHASE_FREQUENCY_COLUMN_NAME = "purchase_frequency"
 CUSTOMER_SPENDING_COLUMN_NAME = "spending"
 
-CUSTOMER_EDUCATION_VALUES = ["High School", "Master", "Bachelor"] #, "PhD"]
+CUSTOMER_EDUCATION_VALUES = ["High School", "Master", "Bachelor", "PhD"]
 
 
 class RawCustomerSchema(pa.DataFrameModel):

@@ -20,9 +20,20 @@ Durée : 5 minutes
 
 ### Présentation des nouveautés sur la branche de ce TP
 
-TODO
+## Installer les dépendances
 
-## TODO
+Ouvrir un terminal dans lequel l'environnement conda est activé puis lancer:
+
+```
+pip install pandera
+```
+
+## Rajouter des vérifications
+
+
+## Valider les données
+
+## Gérer les cas d'erreur
 
 ## Pour aller plus loin
 

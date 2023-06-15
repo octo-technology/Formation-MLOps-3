@@ -44,4 +44,5 @@ def predict(education: Education, age: int):
     :return:
     """
     return predict_model(pd.DataFrame({DataSetColumns.education: [education],
-                                       DataSetColumns.age: [age]}))[0]
+                                       DataSetColumns.age: [age]}),
+                         model_handler=MODEL_HANDLER)[0]

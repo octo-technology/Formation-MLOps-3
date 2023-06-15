@@ -57,3 +57,5 @@ def train_model(model_handler: ModelHandler):
 def evaluate_model(model, X, y):
     y_predicted = model.predict(X)
     return mean_squared_error(y_predicted, y)
+
+

@@ -1,10 +1,10 @@
-summary: TP3 - 
+summary: TP<number> - 
 id: tp3
 status: Published
 authors: OCTO Technology
 Feedback Link: https://github.com/octo-technology/Formation-MLOps-3/issues/new/choose
 
-# TP3 - Pandera
+# TP<number> - Title
 
 ## Vue d'ensemble
 
@@ -28,4 +28,4 @@ TODO
 
 Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp4#0)
 
-# TODO
+# TODO Formateur

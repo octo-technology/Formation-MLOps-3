@@ -1,4 +1,4 @@
-summary: TP<number> - 
+summary: TP<number> - TEMPLATE SUMMARY
 id: tp3
 status: Published
 authors: OCTO Technology

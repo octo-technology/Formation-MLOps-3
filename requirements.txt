@@ -5,3 +5,4 @@ uvicorn==0.22.0
 joblib==1.2.0
 locust==2.15.1
 mlflow==2.4.1
+pandera==0.15.1

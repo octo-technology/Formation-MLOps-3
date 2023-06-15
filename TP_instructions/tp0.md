@@ -107,6 +107,16 @@ Les logs de l'API sont visibles dans `/home/jovyan/api_logfile.log`
 Comme l'API est lancé en background sur l'environnement de TP avec un port en particulier, `kill` l'API requiert
 quelques manipulations.
 
+
+#### Version redémarrer le server
+
+L'autre option est de redémarrer votre server de TP :
+1. Cliquer sur File >> Hub Control Panel >> Stop My Server
+2. Start My Server
+
+Tous les process ont été arrêtés.
+
+
 #### Version command line
 Il faut : tuer `uvicorn` avant ses workers. Pour cela :
 
@@ -118,14 +128,6 @@ Il faut : tuer `uvicorn` avant ses workers. Pour cela :
    tuer avec `kill -9 PID`
 5. L'API va ainsi redémarrer.
 
-
-#### Version redémarrer le server
-
-L'autre option est de redémarrer votre server de TP :
-1. Cliquer sur File >> Hub Control Panel >> Stop My Server
-2. Start My Server
-
-Tous les process ont été arrêtés.
 
 ## Lien vers le TP suivant
 

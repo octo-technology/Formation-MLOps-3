@@ -85,8 +85,9 @@ Si vous n'avez pas d'idée voir la section d'après.
 
 ## Si vous n'avez pas d'idée pour accélérer
 
-Comme idée d'amélioration, nous vous proposons de charger le modèle au marriage de l'application plutôt que à chaque
-prédiction.
+Comme idée d'amélioration, nous vous proposons :
+1. De charger le modèle au marriage de l'application plutôt qu'à chaque prédiction.
+2. D'augmenter le nombre de worker de votre API. Avec l'argument `workers` de `uvicorn.run`
 
 ## Pour aller plus loin
 

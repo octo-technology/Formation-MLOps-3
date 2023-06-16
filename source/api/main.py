@@ -8,14 +8,16 @@ from source.domain.usecase.predict_model import predict_model
 from source.domain.usecase.train_model import train_model, Education, DataSetColumns
 from source.infrastructure.file_system_model_handler import FilSystemModelHandler
 
-# Specific code to run on dslab
-config = configparser.ConfigParser()
-config.read('api_conf.ini')
-server_address = config['server']['address']
-# End of specific code
+try:
+    # Specific code to run on dslab
+    config = configparser.ConfigParser()
+    config.read('api_conf.ini')
+    server_address = config['server']['address']
+    # End of specific code
 
-app = FastAPI(root_path=server_address)
-
+    app = FastAPI(root_path=server_address)
+except:
+    app = FastAPI()
 MODEL_HANDLER = FilSystemModelHandler()
 
 
@@ -46,6 +48,7 @@ def predict(education: Education, age: int):
     """
     return predict_model(pd.DataFrame({DataSetColumns.education: [education],
                                        DataSetColumns.age: [age]}),
+                         model_handler=MODEL_HANDLER,
                          )[0]
 
 

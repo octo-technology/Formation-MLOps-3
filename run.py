@@ -7,7 +7,7 @@ import uvicorn
 parser = argparse.ArgumentParser()
 parser.add_argument("--port", help="Port on which to run")
 args = parser.parse_args()
-port = int(args.port)
+port = 8001
 # End of specific code
 
 if __name__ == '__main__':

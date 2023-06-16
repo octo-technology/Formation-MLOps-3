@@ -3,6 +3,7 @@ from enum import Enum
 
 import mlflow.sklearn
 import pandas as pd
+from codecarbon import track_emissions
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
@@ -39,6 +40,7 @@ def prepare_data(df):
     return df
 
 
+@track_emissions(project_name='Train model', offline=True, country_iso_code='FRA')
 def train_model(model_handler: ModelHandler):
     df = pd.read_csv(os.path.join(DATA_PATH, 'customer_data.csv'), sep=',')
     X_train, X_test, y_train, y_test = train_test_split(df[[DataSetColumns.age, DataSetColumns.education]],
@@ -57,5 +59,3 @@ def train_model(model_handler: ModelHandler):
 def evaluate_model(model, X, y):
     y_predicted = model.predict(X)
     return mean_squared_error(y_predicted, y)
-
-

@@ -25,12 +25,7 @@ TODO
 
 Durée : 5 minutes
 
-Essayer l'API, dans votre terminal réaliser un curl en remplaçant les ... pour mettre un niveau d'éducation (exemple :
-PhD) et un age.
-
-```shell
-curl http://0.0.0.0:8000/predict?education=...&age=...
-```
+Dans le Swagger, essayer l'API, en mettant un niveau d'éducation (exemple : PhD) et un age.
 
 Normalement l'API vous retourne une prédiction
 
@@ -38,11 +33,7 @@ Normalement l'API vous retourne une prédiction
 
 Durée : 5 minutes
 
-Essayer maintenant l'API vec education=Engineer
-
-```shell
-curl http://0.0.0.0:8000/predict?education=Engineer&age=...
-```
+La documentation propose de mettre Engineer dans le champ éducation... essayez.
 
 L'API retourne maintenant une erreur 500 sans plus d'explications. Nous avons notre premier bug
 

@@ -1,10 +1,10 @@
-summary: TP2 - Réaliser un tir de performance sur l'API
+summary: TP2 - Valider les données avec Pandera
 id: tp2
 status: Published
 authors: OCTO Technology
 Feedback Link: https://github.com/octo-technology/Formation-MLOps-3/issues/new/choose
 
-# TP2 - Réaliser un tir de performance sur l'API
+# TP3 - Valider les données avec pandera
 
 ## Vue d'ensemble
 
@@ -12,96 +12,49 @@ Durée : 5 minutes
 
 ### À l'issue de ce TP, vous aurez découvert
 
-- Locust un framework pour faire des tirs de performance
-- La méthode pour créer des tests de performance
+- [Pandera](https://pandera.readthedocs.io/en/stable/index.html), un framework lightweight de validation des données
+- Comment spécifier des vérifications à passer lors de la validation de vos données avec Pandera
+- Comment valider vos données avec les specifications précédemment définies
+- Comment gérer le resultat de l'étape de validation
 
 ### Présentation des nouveautés sur la branche de ce TP
 
 TODO
 
-## Configuration de votre machine personnel
+## Installer les dépendances
 
-Pour réaliser ce TP les tirs de performance se feront depuis votre PC personnel.
+TODO : Changement de branche
+Ouvrir un terminal dans lequel l'environnement conda est activé puis lancer:
 
-Pour cela
+```
+pip install pandera
+```
 
-1. Cloner le repository `git clone https://github.com/octo-technology/Formation-MLOps-3.git`
-2. Installez locust en local `pip install locust`
+## Rajouter des vérifications
 
-## Ajouter l'authentification pour réaliser vos tirs de performance
+Observer le module `source/entities/customer_data_handler`
 
-Pour pouvoir faire un tir de performance sur une machine déployée, il faut s'authentifier
+Nous avons pré-défini un ensemble de validation en utilisant Pandera
+notamment [DataFrameModel](https://pandera.readthedocs.io/en/stable/dataframe_models.html).
 
-Dans le cas de notre machine de TP, l'authentification se fait avec un header `Cookie`, nous allons le récupérer dans
-notre navigateur :
+## Valider les données
 
-1. Aller sur l'interface Swagger,
-2. Clic droit, inspecter
-3. Aller dans l'onglet "Network" qui est apparu
-4. Lancer une requête /health
-5. Cliquer sur la requête health qui est apparue
-6. Dans Request Headers copier le contenu de `Cookie`
-7. Le coller dans la variable `YOUR_COOKIE` in `locustfile.py`
+Dans la suite, nous souhaitons définir les vérifications inhérentes à la colonne `purchase_frequency`, voici ce que vous
+devez faire:
 
-![Comment récupérer un cookie](./images/tp2/reccuperer_le_cookie.png)
+1. Déclarer la colonne purchase_frequency (vous pouvez inspirer de la déclaration des autres colonnes)
+2. Vérifier bien que le type de la colonne est bien celui qui est attendue dans les données brutes
+3. Ajouter un check custom pour vérifier à chaque fois que la valeur est compris entre 0 et 1 (vous pouvez vous inspirer
+   du check sur la colonne education)
+4. Ajouter la validation sur la méthode prepare data grâce au décorateur @pa.check_input(RawCustomerSchema)
+5. Vérifier prepare data sur les données de customer_data.csv: Pas d'erreur
+6. Vérifier prepare data sur les données incoming_data.csv: Observer les logs
+7. Remplacer le decorateur @pa.check_input par @validate_input, celui là filtrera les erreurs de l'input
 
-## Lancer le tir de performance
-
-Pour lancer le tir de performance
-
-1. Dans votre terminal taper `locust`
-2. Accéder à http://0.0.0.0:8089
-   Vous verrez alors l'interface de configuration suivante :
-   ![Configuration locust](./images/tp2/interface_config_locust.png)
-3. Pour configurer :
-    - Number of user : nombre d'utilisateurs simulés. Commençons par 10.
-    - Spawn rate : nombre de créations d'utilisateurs par seconde. Commençons par 1.
-    - Host : route du server sur lequel faire le test. `https://lab.aws.octo.training/jupyter/admin/swagger/` ⚠️
-      Remplacez `admin` par votre user.
-4. Cliquez sur start swarming.
-5. Verifier que cela fonctionne :
-    - Est-ce que les appels finissent en succès ?
-    - Dans le fichier de log `logfile.log` sur le lab, est-ce que les appels apparaissent ?
-
-## Faire des tirs de performance sur la route predict
-
-1. Modifier le fichier `locustfile.py` en remplaçant l'appel sur la route `/health` par un appel sur la route `/predict`
-   avec les bons querry paramets.
-
-   Par exemple : `/predict?education=PhD&age=12`
-
-2. Arrêtez et relancer locust dans votre terminal
-3. Réaliser un test de performance
-4. Jouez sur le nombre d'utilisateurs pour tirer des conclusions sur le fonctionnement de la route et ses limites.
-
-## Auditer le code de predict et l'améliorer
-
-Parcourez le code de prediction et trouver des améliorations pour accélérer la route.
-
-Implémentez votre idée, et réaliser un nouveau tir de performance pour vérifier le résultat.
-
-Si vous n'avez pas d'idée voir la section d'après.
-
-## Si vous n'avez pas d'idée pour accélérer
-
-Comme idée d'amélioration, nous vous proposons :
-
-1. De charger le modèle au marriage de l'application plutôt qu'à chaque prédiction.
-2. D'augmenter le nombre de worker de votre API. Avec l'argument `workers` de `uvicorn.run`.
-    - Attention, il faut désactiver auto-reload pour que cela ait un effet.
-    - Attention, les modifications sur le fichier run.py concernent uvicorn, le `reload` n'aura pas d'impact, il faut
-      killer toute l'API.
-   
-
-## Pour aller plus loin
-
-Avec des tirs de performance as-code, il est possible de configurer de nombreux scenarios.
-
-- Explorez la documentation de [locust](https://docs.locust.io/en/stable/writing-a-locustfile.html)
-- Changez l'implémentation de notre tir de performance pour générer aléatoirement les variables age et éducation.
+## Gérer les cas d'erreur
 
 ## Lien vers le TP suivant
 
-Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp3#0)
+Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp4#0)
 
-# TODO
+# TODO Formateur

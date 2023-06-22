@@ -29,9 +29,9 @@ class RawCustomerSchema(pa.DataFrameModel):
         alias=CUSTOMER_COUNTRY_COLUMN_NAME
     )
 
-    # TODO: [TP3] Retirer pour l'exemple du TP
-    # TODO: [TP3] Ajouter le type pour spending
-    # TODO: [TP3] Ajouter un check pour spending pour vérifier si la valeur est comprise entre 0 et 1
+    # TODO: [TP2] Retirer pour l'exemple du TP
+    # TODO: [TP2] Ajouter le type pour spending
+    # TODO: [TP2] Ajouter un check pour spending pour vérifier si la valeur est comprise entre 0 et 1
     purchase_frequency: pa.typing.Series[pa.typing.Float64] = pa.Field(
         alias=CUSTOMER_PURCHASE_FREQUENCY_COLUMN_NAME
     )

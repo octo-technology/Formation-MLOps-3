@@ -70,6 +70,9 @@ source activate mlops_3
 pip install -r requirements.txt
 ```
 
+## Explorer le repository de code
+Avec les formateurs, ou seul, explorer le code existant pour prendre conscience de l'état du projet.
+
 ## Accéder au Swagger de l'api
 
 Durée : 5min

@@ -3,3 +3,4 @@ __pycache__/
 emissions.csv
 api_logfile.log
 mlruns/
+*.ipynb

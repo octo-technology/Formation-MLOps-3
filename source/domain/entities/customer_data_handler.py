@@ -29,9 +29,9 @@ class RawCustomerSchema(pa.DataFrameModel):
         alias=CUSTOMER_COUNTRY_COLUMN_NAME
     )
 
-    # TODO: Retirer pour l'exemple du TP
-    # TODO: Ajouter le type pour spending préciser le type
-    # TODO: Ajouter un check pour vérifier si la valeur est comprise entre 0 et 1
+    # TODO: [TP3] Retirer pour l'exemple du TP
+    # TODO: [TP3] Ajouter le type pour spending
+    # TODO: [TP3] Ajouter un check pour spending pour vérifier si la valeur est comprise entre 0 et 1
     purchase_frequency: pa.typing.Series[pa.typing.Float64] = pa.Field(
         alias=CUSTOMER_PURCHASE_FREQUENCY_COLUMN_NAME
     )
@@ -42,9 +42,15 @@ class RawCustomerSchema(pa.DataFrameModel):
 
     @pa.check("education", name="is_education_valid")
     def is_education_valid(
-        cls, education: pa.typing.Series[int]
+        cls, education: pa.typing.Series[pa.typing.String]
     ) -> pa.typing.Series[bool]:
         return education.isin(CUSTOMER_EDUCATION_VALUES)
+
+    @pa.check("purchase_frequency", name="is_purchase_frequency_valid")
+    def is_purchase_frequency_valid(
+        cls, purchase_frequency: pa.typing.Series[pa.typing.Float64]
+    ) -> pa.typing.Series[bool]:
+        return purchase_frequency.between(0., 1)
 
     class Config:
         name = "RawCustomerSchema"

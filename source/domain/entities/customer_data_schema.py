@@ -2,8 +2,6 @@ import pandera as pa
 
 from source.domain.entities.customer_columns import DataSetColumns, EDUCATION_LEVEL
 
-CUSTOMER_EDUCATION_VALUES = ["High School", "Master", "Bachelor", "PhD"]
-
 
 class RawCustomerSchema(pa.DataFrameModel):
     age: pa.typing.Series[pa.typing.Int64] = pa.Field(
@@ -11,7 +9,6 @@ class RawCustomerSchema(pa.DataFrameModel):
     )
     education: pa.typing.Series[pa.typing.String] = pa.Field(
         alias=DataSetColumns.education
-        ,
     )
     income: pa.typing.Series[pa.typing.Int64] = pa.Field(
         alias=DataSetColumns.income

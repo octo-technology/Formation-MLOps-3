@@ -12,16 +12,41 @@ Durée : 5 minutes
 
 ### À l'issue de ce TP, vous aurez découvert
 
+- Qu'il est assez facile de faire prédire n'importe quoi à un modèle.
+- Comment se protéger face à ce genre d'attaque
 
 ### Présentation des nouveautés sur la branche de ce TP
 
-TODO
+## Trouver une faille
 
-from deepchecks.tabular.suites import production_suite
+En tant qu'attaquant, nous souhaitons faire prédire une valeur négative à notre modèle.
 
-suite = full_suite()
+Manipulez les données fournies en entrée, essayer des valeurs extrêmes jusqu'à ce que le modèle prédise une valeur
+négative.
 
-suite.run(df, df)
+## Empêcher la faille de se reproduire
+
+Comme nous avons identifié une règle métier (l'inférence ne peut pas être négative), nous vous proposons de
+l'implémenter comme contrôle qualité de notre inférence.
+
+En utilisant `pandera` il est possible de contrôler également les outputs.
+
+Pour cela décorer la fonction `predict_model` avec le décorateur
+
+```python
+@pa.check_output(PredictionSchema)
+def predict_model(df: pd.DataFrame, model_handler: ModelHandler) -> pd.DataFrame:
+    ...
+```
+
+Puis définir un `PredictionSchema` en s'inspirant du schema RawCustomerSchema
+
+## Enrichir le schéma des inputs
+
+Nous avons également identifié une faille dans les inputs, nous n'avons pas fixé de limites sur les valeurs pour l'âge
+des clients alors que le métier nous dit qu'ils ont entre 18 et 125 ans.
+
+Implémenter ce contrôle dans le schéma.
 
 ## Lien vers le TP suivant
 

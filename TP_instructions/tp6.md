@@ -1,10 +1,10 @@
-summary: TP5 - Réaliser un tir de performance sur l'API
-id: tp5
+summary: TP6 - Réaliser un tir de performance sur l'API
+id: tp6
 status: Published
 authors: OCTO Technology
 Feedback Link: https://github.com/octo-technology/Formation-MLOps-3/issues/new/choose
 
-# TP5 - Réaliser un tir de performance sur l'API
+# TP6 - Réaliser un tir de performance sur l'API
 
 ## Vue d'ensemble
 

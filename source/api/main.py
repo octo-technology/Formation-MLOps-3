@@ -5,10 +5,10 @@ from fastapi import FastAPI
 
 from config.api_server import SERVER_ADRESS
 from config.monitoring_config import DB_CONNECTION_STRING
-from source.domain.usecase.monitor import monitor
-from source.domain.usecase.predict_model import predict_model
-from source.domain.usecase.train_model import train_model
 from source.domain.entities.customer_columns import DataSetColumns, Education
+from source.domain.usecase.monitor import monitor
+from source.domain.usecase.predict_model import predict_model, INFERENCE_COL
+from source.domain.usecase.train_model import train_model
 from source.infrastructure.database_monitoring_handler import DataBaseMonitoringHandler
 from source.infrastructure.file_system_model_handler import FilSystemModelHandler
 
@@ -45,9 +45,9 @@ def predict(education: Education, age: int, income: float):
     """
     df = pd.DataFrame({DataSetColumns.education: [education], DataSetColumns.age: [age],
                        DataSetColumns.income: [income]})
-    inference = predict_model(df=df, model_handler=model_handler)[0]
+    inference = predict_model(df=df, model_handler=model_handler)
     monitor(df=df, inference=inference, monitoring_handler=monitoring_handler)
-    return inference
+    return inference.loc[0, INFERENCE_COL]
 
 
 @app.exception_handler(Exception)

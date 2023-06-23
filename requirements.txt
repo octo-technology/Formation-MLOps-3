@@ -1,12 +1,27 @@
+# API behavior
 fastapi==0.96
 pandas==2.0.2
 scikit-learn==1.2.2
 uvicorn==0.22.0
+
+# Model management
 joblib==1.2.0
-locust==2.15.1
 mlflow==2.4.1
+
+# Performance testing
+locust==2.15.1
+
+# Data validation
 pandera==0.15.1
+deepcheck==0.12
 wrapt==1.15.0
+
+# Carbon measurement
 codecarbon==2.2.3
+
+# Database interaction
 sqlalchemy==2.0.16
 psycopg2-binary==2.9.6
+
+# Notebook
+ipykernel==6.23.3

@@ -16,10 +16,10 @@ Durée : 5 minutes
 
 ### Présentation des nouveautés sur la branche de ce TP
 
-
 ## Installer les nouvelles dépendances
 
 Dans votre terminal, avec le bon environnement activé lancer la commande
+
 ```shell
 pip install -r requirements.txt
 ```
@@ -28,17 +28,72 @@ Cette commande va vérifier que tout est bien installé, et notamment installer 
 
 ## Récupérer les inférences passées
 
-Pour explorer l'outil deepchecks nous allons faire une première exploration dans un notebook. 
-1. Cliquer sur le "➕" bleu en haut à droite
-2. Cliquer sur Notebook >> Python3 (ipykernel)
-3. 
+Pour explorer l'outil deepchecks, nous allons faire une première exploration dans un notebook.
 
+1. Pour utiliser votre kernel dans le notebook, lancer dans un terminal la
+   commande : `python -m ipykernel install --user --name=mlops_3`
+2. Cliquer sur le "➕" bleu en haut à droite
+3. Cliquer sur Notebook >> Python3 (ipykernel)
+4. Sélectionner votre kernel (`mlops_3`)
+5. Vérifier que le notebook est fonctionnel exécutant `from deepchecks.tabular.suites import production_suite`
 
-from deepchecks.tabular.suites import production_suite
+Maintenant que l'on a un notebook fonctionnel, nous allons utiliser `sqlalchemy` pour réaliser des requêtes sur la base
+PostGreSql de monitoring.
+
+1. Créer une cellule d'import
+   ```python
+   from sqlalchemy import create_engine
+   import pandas as pd
+   ```
+2. Créer une connection à la base de données
+   ```python
+   engine = create_engine('postgresql://postgres:postgres@postgres:5432/postgres')
+   ```  
+3. Lire les données
+   ```python
+   monitoring_df = pd.read_sql('monitoring_sells_forecast', engine)
+   ```
+
+La table résultante ressemble au tableau suivant
+
+| index | education   | age | income  | inference   | datetime                         |
+|-------|-------------|-----|---------|-------------|----------------------------------|
+| 0     | High School | 100 | 1.0     | 8437.341966 | 2023-06-23 10:30:34.466971+00:00 |
+| 1     | Bachelor    | 12  | 23200.0 | 9736.099105 | 2023-06-23 12:28:40.090749+00:00 |
+| 2     | Bachelor    | 12  | 23200.0 | 9736.099105 | 2023-06-23 12:28:40.932153+00:00 |
+
+Les colonnes contiennent les informations suivantes :
+
+- index : L'id de l'inférence
+- education, age, income : les données fournies par l'utilisateur
+- inference : la valeur de l'inférence retournée
+- datetime : un timestamp de la prédiction en utc
+
+## Charger les données d'entraînement
+
+Pour ce TP, les données utilisées pour l'entraînement du modèle sont disponibles
+dans [./data/customer_data.csv](./data/customer_data.csv)
+
+Les charger avec `pandas` :
+
+```python
+training_df = pd.read_csv("/home/jovyan/Formation-MLOps-3/data/customer_data.csv")
+```
+
+## Comparer les deux jeux de données avec deepchecks
+
+Pour réaliser une comparaison de ces jeux de données, nous allons utiliser la suite de test `production_suite`
+
+```python
+from deepchecks.tabular.suites import full_suite
+
 
 suite = full_suite()
+variables = ['education', 'age', 'income']
+suite.run(training_df[variables], monitoring_df[variables], )
+```
 
-suite.run(df, df)
+Explorer les résultats fournis.
 
 ## Lien vers le TP suivant
 

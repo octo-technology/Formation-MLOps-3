@@ -17,12 +17,8 @@ Durée : 5 minutes
 
 TODO
 
-from deepchecks.tabular.suites import production_suite
-
-suite = full_suite()
-
-suite.run(df, df)
-
+Contact point : webhook http://localhost:8095/send_email/aem@octo.com
+Change notification policie to DSLAB
 ## Lien vers le TP suivant
 
 Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp4#0)

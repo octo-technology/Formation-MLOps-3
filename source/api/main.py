@@ -35,10 +35,10 @@ def train():
 
 
 @app.get("/predict")
-def predict(education: Education, age: int, income: float):
+def predict(education: str, age: int, income: float):
     """
 
-    :param education: Le niveau d'étude de la personne (High School, Bachelor, Master, PhD)
+    :param education: Le niveau d'étude de la personne (High School, Engineer, Bachelor, Master, PhD)
     :param age: age of client
     :param income: income of client
     :return:

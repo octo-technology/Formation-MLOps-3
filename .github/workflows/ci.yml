@@ -20,6 +20,6 @@ jobs:
       - name: Run Linter
         run: flake8 source
       - name: Run Vulture
-        run: vulture source --min-confidence 100
+        run: vulture source --min-confidence 100 --ignore-names "cls"
       - name: Run safety
         run: safety check -r requirements.txt

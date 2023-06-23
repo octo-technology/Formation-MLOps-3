@@ -7,3 +7,6 @@ locust==2.15.1
 mlflow==2.4.1
 pandera==0.15.1
 wrapt==1.15.0
+codecarbon==2.2.3
+sqlalchemy==2.0.16
+psycopg2-binary==2.9.6

@@ -1,24 +1,19 @@
-import configparser
 import logging
 
 import pandas as pd
 from fastapi import FastAPI
 
+from config.api_server import SERVER_ADRESS
+from config.monitoring_config import DB_CONNECTION_STRING
+from source.domain.usecase.monitor import monitor
 from source.domain.usecase.predict_model import predict_model
 from source.domain.usecase.train_model import train_model, Education, DataSetColumns
+from source.infrastructure.database_monitoring_handler import DataBaseMonitoringHandler
 from source.infrastructure.file_system_model_handler import FilSystemModelHandler
 
-try:
-    # Specific code to run on dslab
-    config = configparser.ConfigParser()
-    config.read('api_conf.ini')
-    server_address = config['server']['address']
-    # End of specific code
-
-    app = FastAPI(root_path=server_address)
-except:
-    app = FastAPI()
-MODEL_HANDLER = FilSystemModelHandler()
+app = FastAPI(root_path=SERVER_ADRESS)
+model_handler = FilSystemModelHandler()
+monitoring_handler = DataBaseMonitoringHandler(connection_string=DB_CONNECTION_STRING)
 
 
 @app.get("/")
@@ -33,23 +28,25 @@ def health():
 
 @app.post("/train")
 def train():
-    performance_train, performance_test = train_model(model_handler=MODEL_HANDLER)
+    performance_train, performance_test = train_model(model_handler=model_handler)
     return {'Train mean_squared_error': performance_train,
             'Test mean_squared_error': performance_test}
 
 
 @app.get("/predict")
-def predict(education: Education, age: int):
+def predict(education: Education, age: int, income: float):
     """
 
-    :param education: Le niveau d'étude de la personne (High School, Engineer, Bachelor, Master, PhD)
-    :param age:
+    :param education: Le niveau d'étude de la personne (High School, Bachelor, Master, PhD)
+    :param age: age of client
+    :param income: income of client
     :return:
     """
-    return predict_model(pd.DataFrame({DataSetColumns.education: [education],
-                                       DataSetColumns.age: [age]}),
-                         model_handler=MODEL_HANDLER,
-                         )[0]
+    df = pd.DataFrame({DataSetColumns.education: [education], DataSetColumns.age: [age],
+                       DataSetColumns.income: [income]})
+    inference = predict_model(df=df, model_handler=model_handler)[0]
+    monitor(df=df, inference=inference, monitoring_handler=monitoring_handler)
+    return inference
 
 
 @app.exception_handler(Exception)

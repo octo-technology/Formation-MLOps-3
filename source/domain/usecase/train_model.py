@@ -1,5 +1,4 @@
 import os.path
-from enum import Enum
 
 import mlflow.sklearn
 import pandas as pd
@@ -11,37 +10,18 @@ from sklearn.model_selection import train_test_split
 
 from data import DATA_PATH
 from models import MODEL_REGISTRY
+from source.domain.entities.customer_columns import DataSetColumns, EDUCATION_LEVEL
 from source.domain.entities.customer_data_handler import RawCustomerSchema
 from source.domain.port.model_handler import ModelHandler
 
 MODEL_PATH = os.path.join(MODEL_REGISTRY, 'model.joblib')
 
 
-class DataSetColumns:
-    age = 'age'
-    income = 'income'
-    education = 'education'
-    spending = 'spending'
-
-
-class Education(str, Enum):
-    high_school = 'High School'
-    bachelor = 'Bachelor'
-    master = 'Master'
-    phd = 'PhD'
-
-
-EDUCATION_LEVEL = pd.DataFrame({
-    'education_level': [1, 2, 3, 4],
-    DataSetColumns.education: ['High School', 'Bachelor', 'Master', 'PhD']
-})
-
-
 # TODO: [TP3] Retirer decorateur @pa.check_input(RawCustomerSchema)
 # TODO: [TP3] Ajouter une verification sur l'input en utilisant les checks définis
 # TODO: [TP3] Observer l'erreur, ici le check génère une erreur pour spending > 1
 # TODO: [TP3] Utiliser la methode validate pour filtrer les lignes qui ne passent pas les checks et logger ces lignes
-# @pa.check_input(RawCustomerSchema)
+@pa.check_input(RawCustomerSchema)
 def prepare_data(raw_customer_df: pa.typing.DataFrame[RawCustomerSchema]):
     raw_customer_df = raw_customer_df.merge(EDUCATION_LEVEL, on=DataSetColumns.education).drop(
         columns=[DataSetColumns.education])

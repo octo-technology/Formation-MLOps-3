@@ -1,7 +1,8 @@
 import pandas as pd
 
 from source.domain.port.model_handler import ModelHandler
-from source.domain.usecase.train_model import prepare_data, DataSetColumns
+from source.domain.usecase.train_model import prepare_data
+from source.domain.entities.customer_columns import DataSetColumns
 
 
 def predict_model(df: pd.DataFrame, model_handler: ModelHandler) -> pd.DataFrame:

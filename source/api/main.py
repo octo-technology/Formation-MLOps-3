@@ -7,7 +7,8 @@ from config.api_server import SERVER_ADRESS
 from config.monitoring_config import DB_CONNECTION_STRING
 from source.domain.usecase.monitor import monitor
 from source.domain.usecase.predict_model import predict_model
-from source.domain.usecase.train_model import train_model, Education, DataSetColumns
+from source.domain.usecase.train_model import train_model
+from source.domain.entities.customer_columns import DataSetColumns, Education
 from source.infrastructure.database_monitoring_handler import DataBaseMonitoringHandler
 from source.infrastructure.file_system_model_handler import FilSystemModelHandler
 

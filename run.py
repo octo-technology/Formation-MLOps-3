@@ -3,12 +3,17 @@ import os
 
 import uvicorn
 
-# Specific code for DSLAB to run on expected port
-parser = argparse.ArgumentParser()
-parser.add_argument("--port", help="Port on which to run")
-args = parser.parse_args()
-port = 8001
-# End of specific code
+from config.env import ENVIRONMENT, EnvironmentType
+
+if ENVIRONMENT == EnvironmentType.prod:
+    # Specific code for DSLAB to run on expected port
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--port", help="Port on which to run")
+    args = parser.parse_args()
+    port = int(args.port)
+    # End of specific code
+else:
+    port = 8000
 
 if __name__ == '__main__':
     # WARNING : Being on 0.0.0.0 is a security issue according to bandit, we escaped the check in CI for now

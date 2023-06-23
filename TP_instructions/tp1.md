@@ -17,9 +17,15 @@ Durée : 5 minutes
 - Identifier la source du bogue dans les logs
 - Rendre les erreurs utilisateurs plus user friendly avec le type hinting
 
-### Présentation des nouveautés sur la branche de ce TP
+## Présentation des nouveautés sur la branche de ce TP
 
-TODO
+Récupérer la branche du TP :
+
+```shell
+git checkout 1_start_tp_first_bug
+```
+
+Il n'y a pas particulièrement de nouveauté sur cette branche
 
 ## Essayer l'API
 
@@ -44,12 +50,8 @@ Durée : 15 minutes
 - Explorez le code pour identifier la source de l'erreur.
 - Rendez l'erreur plus explicite. (Conseil : Le type hinting sur fastapi permet de renvoyer une erreur 422 lorsque le
   type ne correspond pas).
+- Mettez à jour la documentation (la docstring) de la route d'API
 
 ## Lien vers le TP suivant
 
 Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp2#0)
-
-# TODO
-
-Supprimer le type hinting "Eduction"
-Mettre dans la doc que l'on peut entrer engineer (typiquement doc pas à jour)

@@ -17,6 +17,17 @@ Durée : 5 minutes
 
 ### Présentation des nouveautés sur la branche de ce TP
 
+Récupérer la branche du TP :
+
+```shell
+git checkout 5_start_tp_faille_de_securite
+```
+
+Les nouveautés sur cette branche sont les suivantes :
+
+- Le fichier [source/domain/entities/prediction_schema.py](source/domain/entities/prediction_schema.py) qui contient un
+  template de schema pour valider les prédictions
+
 ## Trouver une faille
 
 En tant qu'attaquant, nous souhaitons faire prédire une valeur négative à notre modèle.

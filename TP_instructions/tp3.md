@@ -16,6 +16,15 @@ Durée : 5 minutes
 
 ### Présentation des nouveautés sur la branche de ce TP
 
+Récupérer la branche du TP :
+
+```shell
+git checkout 3_start_tp_identifier_les_drift_avec_deepchecks
+```
+
+Les nouveautés sur cette branche sont les suivantes :
+- Le `requirements.txt` contient une nouvelle dépendance : `deepchecks`
+
 ## Installer les nouvelles dépendances
 
 Dans votre terminal, avec le bon environnement activé lancer la commande

@@ -19,10 +19,6 @@ Durée : 15 min
 - L'interface Swagger
 - Les logs de l'API
 
-### Présentation des nouveautés sur la branche de ce TP
-
-TODO
-
 ## Prise en main de Jupyterhub, l'environnement de TP
 
 Durée : 3 min
@@ -47,7 +43,7 @@ Depuis cette page, vous pouvez ouvrir :
 
 Vous pouvez également changer votre mot de passe [ici](https://lab.aws.octo.training/jupyter/hub/auth/change-password).
 
-## Préparer son environnement et cloner le repo
+## Cloner le repo et découvrir la structure du TP
 
 Durée : 3min
 
@@ -62,6 +58,15 @@ puis `new terminal`.
 
 En tapant la commande `git branch` vous pourrez constater que vous êtes sur la branche `0_initial_state`
 
+Notre TP se déroulera en changeant de branche à chaque TP. La commande suivante vous listera l'ensemble des branches du
+TP :
+
+```shell
+git branch -a
+```
+
+## Préparer l'environnement
+
 Ensuite, nous allons créer un environnement de travail Python avec Conda et installer les dépendances :
 
 ```bash
@@ -71,7 +76,27 @@ pip install -r requirements.txt
 ```
 
 ## Explorer le repository de code
+
 Avec les formateurs, ou seul, explorer le code existant pour prendre conscience de l'état du projet.
+
+Dans ce repository, vous avez une API minimaliste de ML :
+
+```
+   .
+   ├── .github                # Des scripts de CI pour valider automatiquement les TPs (dédiés aux formateurs)
+   ├── config                 # Différents fichiers de configurations pour faire tourner le TP
+   ├── data                   # Contient le jeu de donnée brut utilisé pour le TP
+   ├── models                 # Contient un modèle pré-entraîné
+   ├── source                 # Contient le code source de l'API, organisé selon le pattern [d'architecture hewxagonale](https://blog.octo.com/architecture-hexagonale-trois-principes-et-un-exemple-dimplementation/)
+   │   ├── api                # Les interfaces utilisateurs, ici des routes d'api
+   │   ├── domain             # Le cœur métier
+   │   │   ├── entities       # Des classes métiers
+   │   │   ├── port           # Des classes abstraites pour interagir avec l'infrastructure
+   │   │   ├── usecase        # Des orchestrateurs de tâches
+   │   ├── infrastructure     # Le code pour interagir avec la base de donnée de monitoring et le registre de modèle
+   ├── ...                    # Différents fichiers de config
+   ├── run.py                 # Le script pour lancer l'API
+```   
 
 ## Accéder au Swagger de l'api
 
@@ -110,17 +135,17 @@ Les logs de l'API sont visibles dans `/home/jovyan/api_logfile.log`
 Comme l'API est lancé en background sur l'environnement de TP avec un port en particulier, `kill` l'API requiert
 quelques manipulations.
 
-
 #### Version redémarrer le server
 
 L'autre option est de redémarrer votre server de TP :
+
 1. Cliquer sur File >> Hub Control Panel >> Stop My Server
 2. Start My Server
 
 Tous les process ont été arrêtés.
 
-
 #### Version command line
+
 Il faut : tuer `uvicorn` avant ses workers. Pour cela :
 
 1. Avec la commande `ps -ef | grep python` trouver le processus qui contient `python3 Formation-MLOps-3/run.py`
@@ -131,11 +156,6 @@ Il faut : tuer `uvicorn` avant ses workers. Pour cela :
    tuer avec `kill -9 PID`
 5. L'API va ainsi redémarrer.
 
-
 ## Lien vers le TP suivant
 
 Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp1#0)
-
-## TODO pour créer branche de TP :
-
-- Garder uniquement un run.py et un main.py qui lance l'API avec les route / et /health

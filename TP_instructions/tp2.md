@@ -19,13 +19,22 @@ Durée : 5 minutes
 
 ### Présentation des nouveautés sur la branche de ce TP
 
-TODO
+Récupérer la branche du TP :
+
+```shell
+git checkout 2_start_tp_pandera
+```
+
+Les nouveautés sur cette branche sont les suivantes :
+
+- Le `requirements.txt` contient une nouvelle dépendance : `pandera`
+- Un nouveau fichier [source/domain/entities/customer_data_schema.py](source/domain/entities/customer_data_schema.py)
+  qui propose un template de schéma de validation
 
 ## Installer les dépendances
 
-TODO : Changement de branche
-
 Dans votre terminal, avec le bon environnement activé lancer la commande
+
 ```shell
 pip install -r requirements.txt
 ```

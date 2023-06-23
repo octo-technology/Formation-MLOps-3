@@ -17,7 +17,16 @@ Durée : 5 minutes
 
 ### Présentation des nouveautés sur la branche de ce TP
 
-TODO
+Récupérer la branche du TP :
+
+```shell
+git checkout 6_start_tp_tir_performance
+```
+
+Les nouveautés sur cette branche sont les suivantes :
+
+- Le `requirements.txt` contient une nouvelle dépendance : `locust`
+- Un fichier [locust.py](locust.py) qui contient un template de tir de performance
 
 ## Configuration de votre machine personnel
 
@@ -91,7 +100,6 @@ Comme idée d'amélioration, nous vous proposons :
     - Attention, il faut désactiver auto-reload pour que cela ait un effet.
     - Attention, les modifications sur le fichier run.py concernent uvicorn, le `reload` n'aura pas d'impact, il faut
       killer toute l'API.
-   
 
 ## Pour aller plus loin
 

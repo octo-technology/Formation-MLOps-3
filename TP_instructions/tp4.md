@@ -12,7 +12,11 @@ Durée : 5 minutes
 
 ### À l'issue de ce TP, vous aurez découvert
 
-### Présentation des nouveautés sur la branche de ce TP
+- Les différents éléments à configurer pour avoir une alerte pertinente
+- La configuration d'alertes avec Grafana
+- La gestion des notifications avec Grafana
+
+Ce TP ne requiert pas de nouvelle branche, il se fait dans l'interface Grafana
 
 ## Créer un point de contact
 

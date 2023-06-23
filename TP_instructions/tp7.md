@@ -16,7 +16,16 @@ Durée : 5 minutes
 
 ### Présentation des nouveautés sur la branche de ce TP
 
-TODO
+Récupérer la branche du TP :
+
+```shell
+git checkout 7_start_tp_code_carbon
+```
+
+Les nouveautés sur cette branche sont les suivantes :
+
+- Le `requirements.txt` contient une nouvelle dépendance : `codecarbon`
+- Le fichier [.codecarbon.config](.codecarbon.config) qui contient la configuration de codecarbon
 
 ## Intégrer la mesure du coût carbone de l'entraînement du modèle
 

@@ -24,7 +24,7 @@ TODO
 ## Installer les dépendances
 
 TODO : Changement de branche
-Ouvrir un terminal dans lequel l'environnement conda est activé puis lancer:
+Ouvrir un terminal dans lequel l'environnement conda est activé puis lancer :
 
 ```
 pip install pandera
@@ -32,26 +32,29 @@ pip install pandera
 
 ## Rajouter des vérifications
 
-Observer le module `source/entities/customer_data_handler`
+Observer le module `source/entities/customer_data_schema`
 
 Nous avons pré-défini un ensemble de validation en utilisant Pandera
 notamment [DataFrameModel](https://pandera.readthedocs.io/en/stable/dataframe_models.html).
 
 ## Valider les données
 
-Dans la suite, nous souhaitons définir les vérifications inhérentes à la colonne `purchase_frequency`, voici ce que vous
-devez faire:
+Dans la suite, nous souhaitons définir les vérifications inhérentes à la colonne `income`, voici ce que vous
+devez faire :
 
-1. Déclarer la colonne purchase_frequency (vous pouvez inspirer de la déclaration des autres colonnes)
+1. Déclarer la colonne `income` (vous pouvez inspirer de la déclaration des autres colonnes)
 2. Vérifier bien que le type de la colonne est bien celui qui est attendue dans les données brutes
-3. Ajouter un check custom pour vérifier à chaque fois que la valeur est compris entre 0 et 1 (vous pouvez vous inspirer
+3. Ajouter un check custom pour vérifier à chaque fois que la valeur est compris entre 0 et 100000 (vous pouvez vous
+   inspirer
    du check sur la colonne education)
 4. Ajouter la validation sur la méthode prepare data grâce au décorateur @pa.check_input(RawCustomerSchema)
-5. Vérifier prepare data sur les données de customer_data.csv: Pas d'erreur
-6. Vérifier prepare data sur les données incoming_data.csv: Observer les logs
-7. Remplacer le decorateur @pa.check_input par @validate_input, celui là filtrera les erreurs de l'input
+5. Dans le swagger faire un `train` pour vérifier les données : il n'y a pas d'erreur.
+6. Dans le swagger faire un `predict` avec un income à -10 : Observer les logs
+7. Remplacer le decorator @pa.check_input par @validate_input, celui là filtrera les erreurs de l'input
 
-## Gérer les cas d'erreur
+## Pour aller plus loin
+
+Explorer les autres vérifications possibles à mettre en place.
 
 ## Lien vers le TP suivant
 

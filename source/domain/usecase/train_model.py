@@ -11,7 +11,7 @@ from sklearn.model_selection import train_test_split
 from data import DATA_PATH
 from models import MODEL_REGISTRY
 from source.domain.entities.customer_columns import DataSetColumns, EDUCATION_LEVEL
-from source.domain.entities.customer_data_handler import RawCustomerSchema
+from source.domain.entities.customer_data_schema import RawCustomerSchema
 from source.domain.port.model_handler import ModelHandler
 
 MODEL_PATH = os.path.join(MODEL_REGISTRY, 'model.joblib')

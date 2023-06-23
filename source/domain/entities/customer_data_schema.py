@@ -23,11 +23,11 @@ class RawCustomerSchema(pa.DataFrameModel):
     ) -> pa.typing.Series[bool]:
         return education.isin(EDUCATION_LEVEL[DataSetColumns.education])
 
-    @pa.check("age", name="is_age_valid")
-    def is_age_valid(
+    @pa.check("income", name="is_income_valid")
+    def is_income_valid(
             cls, purchase_frequency: pa.typing.Series[pa.typing.Float64]
     ) -> pa.typing.Series[bool]:
-        return purchase_frequency.between(0., 100)
+        return purchase_frequency.between(0., 100000)
 
     class Config:
         name = "RawCustomerSchema"

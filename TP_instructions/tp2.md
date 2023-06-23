@@ -24,11 +24,13 @@ TODO
 ## Installer les dépendances
 
 TODO : Changement de branche
-Ouvrir un terminal dans lequel l'environnement conda est activé puis lancer :
 
+Dans votre terminal, avec le bon environnement activé lancer la commande
+```shell
+pip install -r requirements.txt
 ```
-pip install pandera
-```
+
+Cette commande va vérifier que tout est bien installé, et notamment installer `panderas`
 
 ## Rajouter des vérifications
 
@@ -58,5 +60,3 @@ Explorer les autres vérifications possibles à mettre en place.
 ## Lien vers le TP suivant
 
 Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp4#0)
-
-# TODO Formateur

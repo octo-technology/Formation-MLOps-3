@@ -33,7 +33,7 @@ utiliser un webhook disponible au sein de notre infrastructure de TP.
 7. Vous pouvez cliquer sur `Test` pour vérifier que vous recevez bien le mail
 8. Cliquez sur `Save contact point`
 
-![contact_point.png](./images/contact_point.png)
+![contact_point.png](./images/tp4/contact_point.png)
 
 Maintenant Grafana sait comment vous contacter, nous allons maintenant configurer quand vous contacter.
 
@@ -66,12 +66,12 @@ Nous allons créer une règle pour déclencher des alertes.
     - Dans `for` choisir `30s`, c'est le délai pendant lequel le seuil doit être dépassé pour déclencher une alerte
 
    NB : Dans la "vraie" vie, les noms choisis seront explicites !
-   ![alert_evaluation_behavior.png](./images/alert_evaluation_behavior.png)
+   ![alert_evaluation_behavior.png](./images/tp4/alert_evaluation_behavior.png)
 7. Finalement, nous allons configurer un label pour envoyer les notifications aux bonnes personnes.
     - Dans "Notifications", "Labels" dans "choose key" taper `trainee`
     - Dans "Choose value" indiquer votre prénom
 
-   ![notification.png](./images/notification.png)
+   ![notification.png](./images/tp4/notification.png)
 7. En haut à droite, cliquer sur `Save and exist`
 
 Nous avons maintenant une alerte, il faut maintenant définir un envoi à de mail à vous pour cette alerte.
@@ -83,14 +83,14 @@ Nous avons maintenant une alerte, il faut maintenant définir un envoi à de mai
 3. Cliquez sur `New nested policy`
 4. Dans le matching pattern configuer `trainee` `=` `prenom`
 
-![notification_policy.png](./images/notification_policy.png)
+![notification_policy.png](./images/tp4/notification_policy.png)
 
 ## Recevoir une alerte
 
 Maintenant, nous allons chercher à avoir une alerte.
 
 Dans la vue `Alert rule` votre alert apparaît comme normale :
-![normal_alert.png](./images/normal_alert.png)
+![normal_alert.png](./images/tp4/normal_alert.png)
 
 Allez dans le Swagger et faire une requête (par exemple avec `age=100`) pour avoir une prédiction sous le seuil.
 
@@ -100,10 +100,10 @@ dans `source/infrastructure/database_monitoring_handler` dans la variable `MONIT
 
 Retournez dans alert rules et vérifier que votre alert devient `pending` (c'est-à-dire a dépassé le seuil, mais pas
 encore plus de 30s)
-![pending_alert.png](./images/pending_alert.png)
+![pending_alert.png](./images/tp4/pending_alert.png)
 
 Attendre un peu, elle va apparaître `firing`
-![firing_alert.png](./images/firing_alert.png)
+![firing_alert.png](./images/tp4/firing_alert.png)
 
 Vérifier que vous avez bien reçu le mail d'alerte.
 

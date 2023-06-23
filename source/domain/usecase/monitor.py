@@ -1,7 +1,6 @@
 from datetime import datetime, timezone
 
 import pandas as pd
-import pytz
 
 from source.domain.port.monitoring_handler import MonitoringHandler
 

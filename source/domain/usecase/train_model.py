@@ -13,7 +13,6 @@ from source.domain.entities.customer_data_schema import RawCustomerSchema
 from source.domain.port.model_handler import ModelHandler
 
 
-@pa.check_input(RawCustomerSchema)
 def prepare_data(raw_customer_df: pa.typing.DataFrame[RawCustomerSchema]):
     raw_customer_df = raw_customer_df.merge(EDUCATION_LEVEL, on=DataSetColumns.education).drop(
         columns=[DataSetColumns.education])

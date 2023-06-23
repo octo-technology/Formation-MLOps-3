@@ -10,12 +10,8 @@ mlflow==2.4.1
 
 # Data validation
 pandera==0.15.1
-deepcheck==0.12
 wrapt==1.15.0
 
 # Database interaction
 sqlalchemy==2.0.16
 psycopg2-binary==2.9.6
-
-# Notebook
-ipykernel==6.23.3

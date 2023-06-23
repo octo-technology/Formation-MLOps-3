@@ -3,4 +3,4 @@ class EnvironmentType:
     prod = 'prod'
 
 
-ENVIRONMENT = 'prod'
+ENVIRONMENT = 'local'

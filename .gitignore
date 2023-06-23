@@ -4,3 +4,4 @@ emissions.csv
 api_logfile.log
 mlruns/
 *.ipynb
+monitoring.db

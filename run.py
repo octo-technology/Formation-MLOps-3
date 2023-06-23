@@ -13,7 +13,7 @@ if ENVIRONMENT == EnvironmentType.prod:
     port = int(args.port)
     # End of specific code
 else:
-    port = 8000
+    port = 8001
 
 if __name__ == '__main__':
     # WARNING : Being on 0.0.0.0 is a security issue according to bandit, we escaped the check in CI for now

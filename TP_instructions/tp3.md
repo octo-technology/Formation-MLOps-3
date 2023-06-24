@@ -12,7 +12,7 @@ Durée : 5 minutes
 
 ### À l'issue de ce TP, vous aurez découvert
 
-- [deepcheck](https://github.com/deepchecks/deepchecks) un outil d'analyse de drift et de biais entre train et test set
+- [deepchecks](https://github.com/deepchecks/deepchecks) un outil d'analyse de drift et de biais entre train et test set
 
 ### Présentation des nouveautés sur la branche de ce TP
 
@@ -33,7 +33,7 @@ Dans votre terminal, avec le bon environnement activé lancer la commande
 pip install -r requirements.txt
 ```
 
-Cette commande va vérifier que tout est bien installé, et notamment installer `deepcheck`
+Cette commande va vérifier que tout est bien installé, et notamment installer `deepchecks`
 
 ## Récupérer les inférences passées
 

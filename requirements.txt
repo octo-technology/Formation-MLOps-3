@@ -13,7 +13,7 @@ locust==2.15.1
 
 # Data validation
 pandera==0.15.1
-deepcheck==0.12
+deepchecks==0.17.3
 wrapt==1.15.0
 
 # Database interaction

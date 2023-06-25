@@ -16,6 +16,6 @@ class FilSystemModelHandler(ModelHandler):
 
     def load_model(self):
         try:
-            return mlflow.pyfunc.load_model(model_uri=f"models:/customer/production")
+            return mlflow.pyfunc.load_model(model_uri="models:/customer/production")
         except MlflowException:
             return joblib.load(MODEL_PATH)

@@ -5,7 +5,7 @@ from fastapi import FastAPI
 
 from config.api_server import SERVER_ADRESS
 from config.monitoring_config import DB_CONNECTION_STRING
-from source.domain.entities.customer_columns import DataSetColumns, Education
+from source.domain.entities.customer_columns import DataSetColumns
 from source.domain.usecase.monitor import monitor
 from source.domain.usecase.predict_model import predict_model, INFERENCE_COL
 from source.domain.usecase.train_model import train_model

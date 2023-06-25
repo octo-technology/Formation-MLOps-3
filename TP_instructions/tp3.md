@@ -23,6 +23,7 @@ git checkout 3_start_tp_identifier_les_drift_avec_deepchecks
 ```
 
 Les nouveautés sur cette branche sont les suivantes :
+
 - Le `requirements.txt` contient une nouvelle dépendance : `deepchecks`
 
 ## Installer les nouvelles dépendances
@@ -96,13 +97,21 @@ Pour réaliser une comparaison de ces jeux de données, nous allons utiliser la 
 ```python
 from deepchecks.tabular.suites import full_suite
 
-
 suite = full_suite()
 variables = ['education', 'age', 'income']
-suite.run(training_df[variables], monitoring_df[variables], )
+result = suite.run(training_df[variables], monitoring_df[variables], )
 ```
 
-Explorer les résultats fournis.
+Deepchecks, permet normalement de présenter directement un widget dans le notebook. Malheureusement, notre
+infrastructure de TP ne nous permet (actuellement pas) de le visionner. Nous allons donc sauvegarder cela sous forme `html`
+
+```python
+result.save_as_html('deepchecks_results.html')
+```
+
+Double-cliquer, sur le fichier généré pour le visualiser.
+
+Finalement, explorer les résultats fournis.
 
 ## Lien vers le TP suivant
 

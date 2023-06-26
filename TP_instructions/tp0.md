@@ -23,10 +23,13 @@ Durée : 15 minutes
 
 Durée : 3 min
 
-Pour vous connecter sur [l'interface de TP Jupyter Hub](https://lab.aws.octo.training/), l'instructeur vous aura donné votre identifiant/mot de passe :
+Pour vous connecter sur [l'interface de TP Jupyter Hub](https://lab.aws.octo.training/), l'instructeur vous aura donné
+votre identifiant.
 ![Connection](images/tp0/connection.png)
 
-Une fois connecté, une page de chargement apparaît, temps pendant lequel votre environnement de TP est créé :
+Une fois connecté, vous devrez définir votre mot de passe. 
+
+Puis, une page de chargement apparaît, pendant que votre environnement de TP est créé :
 ![StartingServer](images/tp0/starting_server.png)
 
 Cela peut prendre 1 à 2 minutes, mais pas plus. Si votre environment ne démarre pas, vous pouvez essayer d'actualiser
@@ -40,8 +43,6 @@ Depuis cette page, vous pouvez ouvrir :
 - Un terminal : dans other / terminal
 - Un éditeur de code en ligne : dans Notebook / VS Code
 - Airflow et MLFlow que nous manipulerons
-
-Vous pouvez également changer votre mot de passe [ici](https://lab.aws.octo.training/jupyter/hub/auth/change-password).
 
 ## Cloner le repo et découvrir la structure du TP
 
@@ -59,16 +60,17 @@ Une fois le repository clôné, un nouveau dossier apparaît.
 ![Homepage](./images/tp0/homepage.png)
 
 Rentrer dans ce dossier à l'aide de la commande :
+
 ```shell
 cd Formation-MLOps-3
 ```
 
 En tapant la commande `git branch` vous pourrez constater que vous êtes sur la branche `0_initial_state`
 
-
 Notre TP se déroulera en changeant de branche à chaque TP.
 
 La commande suivante vous listera l'ensemble des branches du TP :
+
 ```shell
 git branch -a
 ```
@@ -87,7 +89,8 @@ pip install -r requirements.txt
 
 Avec les formateurs, ou seul, explorer le code existant pour prendre connaissance de l'état du projet.
 
-Pour information, le code de l'API est organisé selon le pattern [d'architecture hexagonale](https://blog.octo.com/architecture-hexagonale-trois-principes-et-un-exemple-dimplementation/)
+Pour information, le code de l'API est organisé selon le
+pattern [d'architecture hexagonale](https://blog.octo.com/architecture-hexagonale-trois-principes-et-un-exemple-dimplementation/)
 
 Dans ce repository, vous avez une API minimaliste de ML :
 
@@ -113,7 +116,8 @@ Dans ce repository, vous avez une API minimaliste de ML :
 Durée : 5 min
 
 Swagger est un langage de description d'interface permettant de décrire des API exprimées à l'aide de JSON.
-Swagger est utilisé avec toute une série d'outils logiciels open source pour concevoir, créer, documenter et utiliser des services Web.
+Swagger est utilisé avec toute une série d'outils logiciels open source pour concevoir, créer, documenter et utiliser
+des services Web.
 
 Nous allons accéder à cette interface pour voir les routes d'API et interagir avec elles.
 
@@ -130,7 +134,8 @@ python_path = python3 # TODO Insérer le path vers votre env conda (que vous pou
 run_dot_py_file_path = run.py  # TODO Insérer le path vers le fichier run.py du TP soit `Formation-MLOps-3/run.py`
 ```
 
-Une fois cela fait, vous pouvez cliquer sur l'icône API dans le launcher, puis ajouter `/docs` à l'url pour voir le swagger.
+Une fois cela fait, vous pouvez cliquer sur l'icône API dans le launcher, puis ajouter `/docs` à l'url pour voir le
+swagger.
 
 Tester la route `/health` pour vérifier que tout marche bien.
 
@@ -161,10 +166,12 @@ Pour cela :
 
 1. Avec la commande `ps -ef | grep python` trouver le processus qui contient `python3 Formation-MLOps-3/run.py`
 2. Noter le PID (c'est le premier nombre de la ligne)
-3. Exécuter la commande `kill -9 PID` cela va tuer le processus uvicorn qui va essayer de redémarrer, il n'y arrivera pas car le worker utilise encore le port
+3. Exécuter la commande `kill -9 PID` cela va tuer le processus uvicorn qui va essayer de redémarrer, il n'y arrivera
+   pas car le worker utilise encore le port
 4.
-   1. Trouver le (ou les) processus qui contien(ne)t `/opt/conda/bin/python3 -c from multiprocessing.spawn import spawn_main;`
-   2. Le(s) tuer avec `kill -9 PID`
+    1. Trouver le (ou les) processus qui contien(ne)
+       t `/opt/conda/bin/python3 -c from multiprocessing.spawn import spawn_main;`
+    2. Le(s) tuer avec `kill -9 PID`
 5. L'API va ainsi redémarrer.
 
 ## Lien vers le TP suivant

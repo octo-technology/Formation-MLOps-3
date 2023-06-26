@@ -4,12 +4,13 @@ status: Published
 authors: OCTO Technology
 logoUrl: images/ocac.png
 Feedback Link: https://github.com/octo-technology/Formation-MLOps-3/issues/new/choose
+url: https://github.com/octo-technology/Formation-MLOps-3
 
 # TP1 - Découvrir l'API de prédiction et identifier un premier bug
 
 ## Vue d'ensemble
 
-Duration: 0:05:00
+Duration: 0:01:00
 
 ### À l'issue de ce TP, vous aurez découvert
 
@@ -19,6 +20,8 @@ Duration: 0:05:00
 - Rendre les erreurs utilisateurs plus user friendly avec le type hinting
 
 ## Présentation des nouveautés sur la branche de ce TP
+
+Duration: 0:01:00
 
 Récupérer la branche du TP :
 
@@ -30,7 +33,7 @@ Il n'y a pas particulièrement de nouveauté sur cette branche
 
 ## Essayer l'API
 
-Durée : 5 minutes
+Duration: 0:03:00
 
 Dans le Swagger, essayer l'API, en mettant un niveau d'éducation (exemple : PhD), un âge et un revenu.
 
@@ -38,7 +41,7 @@ Normalement l'API vous retourne une prédiction
 
 ## Découvrir le premier bug
 
-Durée : 5 minutes
+Duration: 0:03:00
 
 La documentation propose de mettre Engineer dans le champ éducation... essayer.
 
@@ -46,7 +49,7 @@ L'API retourne maintenant une erreur 500 sans plus d'explications. Nous avons no
 
 ## Debugger et corriger
 
-Durée : 15 minutes
+Duration: 0:15:00
 
 - Explorer le code pour identifier la source de l'erreur.
 - Rendre l'erreur plus explicite. (Conseil: Le type hinting sur fastapi permet de renvoyer une erreur 422 lorsque le
@@ -54,5 +57,7 @@ Durée : 15 minutes
 - Mettre à jour la documentation (la docstring) de la route d'API
 
 ## Lien vers le TP suivant
+
+Duration: 0:00:30 
 
 Les instructions du TP suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp2#0)

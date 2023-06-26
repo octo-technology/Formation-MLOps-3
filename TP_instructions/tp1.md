@@ -2,9 +2,7 @@ summary: TP1 - Découvrir l'API et faire le premier fix
 id: tp1
 status: Published
 authors: OCTO Technology
-logoUrl: images/ocac.png
 Feedback Link: https://github.com/octo-technology/Formation-MLOps-3/issues/new/choose
-url: https://github.com/octo-technology/Formation-MLOps-3
 
 # TP1 - Découvrir l'API de prédiction et identifier un premier bug
 

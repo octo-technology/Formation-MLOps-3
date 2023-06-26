@@ -8,7 +8,7 @@ Feedback Link: https://github.com/octo-technology/Formation-MLOps-3/issues/new/c
 
 ## Vue d'ensemble
 
-Durée : 15 minutes
+Duration: 0:02:00
 
 ### À l'issue de ce TP, vous aurez découvert :
 
@@ -28,6 +28,8 @@ Les nouveautés sur cette branche sont les suivantes :
 - Le fichier [.codecarbon.config](.codecarbon.config) qui contient la configuration de codecarbon
 
 ## Intégrer la mesure du coût carbone de l'entraînement du modèle
+
+Duration: 0:05:00
 
 Pour réaliser la mesure du coût carbone d'un entraînement, nous allons utiliser le package `codecarbon`
 
@@ -62,6 +64,8 @@ Ce décorateur permet de spécifier :
 Pour finir, aller dans le Swagger et lancer un entraînement sur la route train pour que l'on commence à logger.
 
 ## Analyser les résultats
+
+Duration: 0:03:00
 
 Code carbon a produit un fichier `/home/jovyan/emissions.csv`.
 

@@ -8,7 +8,7 @@ Feedback Link: https://github.com/octo-technology/Formation-MLOps-3/issues/new/c
 
 ## Vue d'ensemble
 
-Durée : 30 minutes
+Duration: 0:02:00
 
 ### À l'issue de ce TP, vous aurez découvert
 
@@ -32,6 +32,8 @@ Les nouveautés sur cette branche sont les suivantes :
 
 ## Installer les dépendances
 
+Duration: 0:03:00
+
 Dans votre terminal, avec le bon environnement activé lancer la commande
 
 ```shell
@@ -42,11 +44,15 @@ Cette commande vérifie que tout est bien installé, et installe notamment `pand
 
 ## Rajouter des vérifications
 
+Duration: 0:03:00
+
 Observer le module `source/domain/entities/customer_data_schema`
 
 Nous avons pré-défini un ensemble de validation en utilisant Pandera notamment [DataFrame Model](https://pandera.readthedocs.io/en/stable/dataframe_models.html).
 
 ## Valider les données
+
+Duration: 0:14:00
 
 Dans la suite, nous souhaitons définir les vérifications inhérentes à la colonne `income`, voici ce que vous
 devez faire :
@@ -62,8 +68,11 @@ devez faire :
 
 ## Pour aller plus loin
 
+Duration: 0:00:00
+
 Explorer les autres vérifications possibles à mettre en place.
 
 ## Lien vers le TP suivant
+Duration: 0:01:00
 
 Les instructions du TP suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp3#0)

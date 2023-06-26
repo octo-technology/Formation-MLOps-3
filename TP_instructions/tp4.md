@@ -8,7 +8,7 @@ Feedback Link: https://github.com/octo-technology/Formation-MLOps-3/issues/new/c
 
 ## Vue d'ensemble
 
-Durée : 30 minutes
+Duration: 0:03:00
 
 ### À l'issue de ce TP, vous aurez découvert :
 
@@ -19,6 +19,8 @@ Durée : 30 minutes
 Ce TP ne requiert pas de nouvelle branche, il se fait dans l'interface Grafana
 
 ## Créer un point de contact
+
+Duration: 0:05:00
 
 Accéder à Grafana à l'adresse [https://lab.aws.octo.training/grafana/alerting](https://lab.aws.octo.training/grafana/alerting).
 
@@ -43,6 +45,8 @@ Dans le cadre de ce TP, nous allons utiliser un webhook disponible au sein de no
 Maintenant que Grafana sait comment vous contacter, nous allons configurer quand vous contacter.
 
 ## Créer une règle d'alerte
+
+Duration: 0:05:00
 
 Nous allons créer une règle pour déclencher des alertes.
 
@@ -82,6 +86,8 @@ Nous venons de créer une alerte. Il faut maintenant définir un envoi de mail p
 
 ## Définir une notification policy
 
+Duration: 0:05:00
+
 1. Cliquez sur le menu déroulant en haut à gauche
 2. Cliquez sur `Notification policies` dans la section `Alerting`
 3. Cliquez sur `New nested policy`
@@ -91,6 +97,8 @@ Nous venons de créer une alerte. Il faut maintenant définir un envoi de mail p
 ![notification_policy.png](./images/tp4/notification_policy.png)
 
 ## Recevoir une alerte
+
+Duration: 0:05:00
 
 Maintenant, nous allons chercher à avoir une alerte.
 
@@ -113,8 +121,11 @@ Vérifier que vous avez bien reçu le mail d'alerte.
 
 ## Pour aller plus loin
 
+Duration: 0:00:00
+
 En attendant le reste du groupe, vous pouvez créer une alerte sur l'âge.
 
 ## Lien vers le TP suivant
+Duration: 0:01:00
 
 Les instructions du TP suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp5#0)

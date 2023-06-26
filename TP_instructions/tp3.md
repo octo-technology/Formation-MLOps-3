@@ -8,7 +8,7 @@ Feedback Link: https://github.com/octo-technology/Formation-MLOps-3/issues/new/c
 
 ## Vue d'ensemble
 
-Durée : 25 minutes
+Duration: 0:03:00
 
 ### À l'issue de ce TP, vous aurez découvert
 
@@ -28,6 +28,8 @@ Les nouveautés sur cette branche sont les suivantes :
 
 ## Installer les nouvelles dépendances
 
+Duration: 0:03:00
+
 Dans votre terminal, avec le bon environnement activé, lancer la commande:
 
 ```shell
@@ -37,6 +39,8 @@ pip install -r requirements.txt
 Cette commande vérifie que tout est bien installé, et installe notamment `deepchecks`
 
 ## Récupérer les inférences passées
+
+Duration: 0:03:00
 
 Pour explorer l'outil deepchecks, nous allons faire une première étude dans un notebook.
 
@@ -81,6 +85,8 @@ Les colonnes contiennent les informations suivantes :
 
 ## Charger les données d'entraînement
 
+Duration: 0:03:00
+
 Pour ce TP, les données utilisées pour l'entraînement du modèle sont disponibles dans [./data/customer_data.csv](./data/customer_data.csv)
 
 Les charger avec `pandas` :
@@ -90,6 +96,8 @@ training_df = pd.read_csv("/home/jovyan/Formation-MLOps-3/data/customer_data.csv
 ```
 
 ## Comparer les deux jeux de données avec deepchecks
+
+Duration: 0:10:00
 
 Pour réaliser une comparaison de ces jeux de données, nous allons utiliser la suite de test `production_suite`
 
@@ -116,6 +124,8 @@ Double-cliquer, sur le fichier généré pour le visualiser.
 Finalement, explorer les résultats fournis.
 
 ## Lien vers le TP suivant
+
+Duration: 0:01:00
 
 Les instructions du TP suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp4#0)
 

@@ -8,7 +8,7 @@ Feedback Link: https://github.com/octo-technology/Formation-MLOps-3/issues/new/c
 
 ## Vue d'ensemble
 
-Durée : 15 minutes
+Duration: 0:03:00
 
 ### À l'issue de ce TP, vous aurez découvert :
 
@@ -30,11 +30,15 @@ Les nouveautés sur cette branche sont les suivantes :
 
 ## Trouver une faille
 
+Duration: 0:05:00
+
 En tant qu'attaquant, nous souhaitons faire prédire une valeur négative à notre modèle.
 
 En manipulant les données fournies en entrée, essayer des valeurs extrêmes jusqu'à ce que le modèle prédise une valeur négative.
 
 ## Empêcher la faille de se reproduire
+
+Duration: 0:05:00
 
 Comme nous avons identifié une règle métier (l'inférence ne peut pas être négative), nous vous proposons de l'implémenter comme contrôle qualité de notre inférence.
 
@@ -53,10 +57,13 @@ Puis définir un `PredictionSchema` en s'inspirant du schema:
 
 ## Enrichir le schéma des inputs
 
+Duration: 0:05:00
+
 Nous avons également identifié une faille dans les inputs: nous n'avons pas fixé de limites sur les valeurs pour l'âge des clients alors que le métier nous dit qu'ils ont entre 18 et 125 ans.
 
 Implémenter ce contrôle dans le schéma.
 
 ## Lien vers le TP suivant
+Duration: 0:01:00
 
 Les instructions du TP suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp6#0)

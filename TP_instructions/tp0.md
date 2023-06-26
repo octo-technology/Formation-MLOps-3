@@ -10,7 +10,7 @@ Feedback Link: https://github.com/octo-technology/Formation-MLOps-3/issues/new/c
 
 ## Vue d'ensemble
 
-Durée : 15 minutes
+Duration: 0:01:00
 
 ### À l'issue de ce TP, vous aurez découvert
 
@@ -21,7 +21,7 @@ Durée : 15 minutes
 
 ## Prise en main de Jupyterhub, l'environnement de TP
 
-Durée : 3 min
+Duration: 0:05:00
 
 Pour vous connecter sur [l'interface de TP Jupyter Hub](https://lab.aws.octo.training/), l'instructeur vous aura donné
 votre identifiant.
@@ -46,7 +46,7 @@ Depuis cette page, vous pouvez ouvrir :
 
 ## Cloner le repo et découvrir la structure du TP
 
-Durée : 3 min
+Duration: 0:03:00
 
 Rendez-vous sur votre environnement de développement.
 
@@ -77,6 +77,8 @@ git branch -a
 
 ## Préparer l'environnement
 
+Duration: 0:10:00
+
 Ensuite, nous allons créer un environnement de travail Python avec Conda et installer les dépendances :
 
 ```bash
@@ -86,6 +88,8 @@ pip install -r requirements.txt
 ```
 
 ## Explorer le repository de code
+
+Duration: 0:10:00
 
 Avec les formateurs, ou seul, explorer le code existant pour prendre connaissance de l'état du projet.
 
@@ -113,7 +117,7 @@ Dans ce repository, vous avez une API minimaliste de ML :
 
 ## Accéder au Swagger de l'api
 
-Durée : 5 min
+Duration: 0:05:00
 
 Swagger est un langage de description d'interface permettant de décrire des API exprimées à l'aide de JSON.
 Swagger est utilisé avec toute une série d'outils logiciels open source pour concevoir, créer, documenter et utiliser
@@ -144,7 +148,9 @@ relanceront l'API.
 
 Les logs de l'API sont visibles dans `/home/jovyan/api_logfile.log`
 
-### Pour killer l'API sur l'environnement de TP
+## Pour aller plus loin, apprendre à tuer l'API sur l'environnement de TP
+
+Duration: 0:03:00
 
 Comme l'API est lancé en background sur l'environnement de TP avec un port en particulier, `kill` l'API requiert
 quelques manipulations.
@@ -175,5 +181,7 @@ Pour cela :
 5. L'API va ainsi redémarrer.
 
 ## Lien vers le TP suivant
+
+Duration: 0:01:00
 
 Les instructions du TP suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp1#0)

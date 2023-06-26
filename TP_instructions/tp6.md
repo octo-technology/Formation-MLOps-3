@@ -8,7 +8,7 @@ Feedback Link: https://github.com/octo-technology/Formation-MLOps-3/issues/new/c
 
 ## Vue d'ensemble
 
-Durée : 20 minutes
+Duration: 0:03:00
 
 ### À l'issue de ce TP, vous aurez découvert :
 
@@ -30,6 +30,8 @@ Les nouveautés sur cette branche sont les suivantes :
 
 ## Configuration de votre machine personnel
 
+Duration: 0:05:00
+
 Pour réaliser ce TP les tirs de performance se feront depuis votre PC personnel.
 
 Pour cela :
@@ -39,6 +41,8 @@ Pour cela :
 3. Installer locust en local `pip install locust`
 
 ## Ajouter l'authentification pour réaliser vos tirs de performance
+
+Duration: 0:05:00
 
 Pour pouvoir faire un tir de performance sur une machine déployée, il faut s'authentifier
 
@@ -57,7 +61,9 @@ notre navigateur :
 
 ## Lancer le tir de performance
 
-Pour lancer le tir de performance:
+Duration: 0:05:00
+
+Pour lancer le tir de performance :
 
 1. Dans votre terminal, taper `locust`
 2. Accéder à [http://0.0.0.0:8089](http://0.0.0.0:8089)
@@ -75,6 +81,8 @@ Pour lancer le tir de performance:
 
 ## Faire des tirs de performance sur la route predict
 
+Duration: 0:10:00
+
 1. Modifier le fichier `locustfile.py` en remplaçant l'appel sur la route `/health` par un appel sur la route `/predict` avec les bons query parameters.
 
    Par exemple : `/predict?education=PhD&age=12`
@@ -85,6 +93,8 @@ Pour lancer le tir de performance:
 
 ## Auditer le code de predict et l'améliorer
 
+Duration: 0:10:00
+
 Parcourir le code de prediction et trouver des améliorations pour accélérer la route.
 
 Implémentez votre idée, et réaliser un nouveau tir de performance pour vérifier le résultat.
@@ -92,6 +102,8 @@ Implémentez votre idée, et réaliser un nouveau tir de performance pour vérif
 Si vous n'avez pas d'idée, voir la section d'après.
 
 ## Si vous n'avez pas d'idée pour accélérer
+
+Duration: 0:03:00
 
 Comme idée d'amélioration, nous vous proposons :
 
@@ -102,11 +114,15 @@ Comme idée d'amélioration, nous vous proposons :
 
 ## Pour aller plus loin
 
+Duration: 0:00:00
+
 Avec des tirs de performance as-code, il est possible de configurer de nombreux scenarios.
 
 - Explorer la documentation de [locust](https://docs.locust.io/en/stable/writing-a-locustfile.html)
 - Changer l'implémentation de notre tir de performance pour générer aléatoirement les variables âge et éducation.
 
 ## Lien vers le TP suivant
+
+Duration: 0:01:00
 
 Les instructions du TP suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp7#0)

@@ -15,7 +15,7 @@ Durée : 15 min
 ### À l'issue de ce TP, vous aurez découvert
 
 - L'environnement de TP
-- Le repository de code que nous allons utilisé
+- Le repository de code que nous allons utiliser
 - L'interface Swagger
 - Les logs de l'API
 
@@ -23,7 +23,7 @@ Durée : 15 min
 
 Durée : 3 min
 
-Pour vous connecter sur l'interface de TP, l'instructeur vous aura donné votre identifiant/mot de passe :
+Pour vous connecter sur [l'interface de TP Jupyter Hub](https://lab.aws.octo.training/), l'instructeur vous aura donné votre identifiant/mot de passe :
 ![Connection](images/tp0/connection.png)
 
 Une fois connecté, une page de chargement apparaît, temps pendant lequel votre environnement de TP est créé :
@@ -33,7 +33,7 @@ Cela peut prendre 1 à 2 minutes, mais pas plus. Si votre environment ne démarr
 puis faire appel à votre formateur.
 
 Une fois que le serveur est démarré, vous êtes redirigé vers la page principale :
-![HomePage](./images/tp0/homepage.png)
+![Homepage without clone](./images/tp0/homepage-without-clone.png)
 
 Depuis cette page, vous pouvez ouvrir :
 
@@ -45,22 +45,30 @@ Vous pouvez également changer votre mot de passe [ici](https://lab.aws.octo.tra
 
 ## Cloner le repo et découvrir la structure du TP
 
-Durée : 3min
+Durée : 3 min
 
 Rendez-vous sur votre environnement de développement.
 
 Ouvrez un terminal afin d'y cloner le repository de code des TPs avec la commande `$> git clone <url>;`.
-Vous trouverez l'URL de clonage en HTTPS sur github, dans le repo que vous avez forké :
+Vous trouverez l'URL de clonage en HTTPS sur github, dans le repo que vous avez forké.
 
-Pour ouvrir un terminal il faut cliquer sur les 2 barres parallèles en haut à droite puis `terminal`
-puis `new terminal`.
+Pour ouvrir un terminal il faut cliquer sur en haut à gauche sur `File` puis `New` puis `Terminal`.
 ![bouton clonage](./images/tp0/github-clone-button.png)
+
+Une fois le repository clôné, un nouveau dossier apparaît.
+![Homepage](./images/tp0/homepage.png)
+
+Rentrer dans ce dossier à l'aide de la commande :
+```shell
+cd Formation-MLOps-3
+```
 
 En tapant la commande `git branch` vous pourrez constater que vous êtes sur la branche `0_initial_state`
 
-Notre TP se déroulera en changeant de branche à chaque TP. La commande suivante vous listera l'ensemble des branches du
-TP :
 
+Notre TP se déroulera en changeant de branche à chaque TP.
+
+La commande suivante vous listera l'ensemble des branches du TP :
 ```shell
 git branch -a
 ```
@@ -77,7 +85,9 @@ pip install -r requirements.txt
 
 ## Explorer le repository de code
 
-Avec les formateurs, ou seul, explorer le code existant pour prendre conscience de l'état du projet.
+Avec les formateurs, ou seul, explorer le code existant pour prendre connaissance de l'état du projet.
+
+Pour information, le code de l'API est organisé selon le pattern [d'architecture hexagonale](https://blog.octo.com/architecture-hexagonale-trois-principes-et-un-exemple-dimplementation/)
 
 Dans ce repository, vous avez une API minimaliste de ML :
 
@@ -87,24 +97,23 @@ Dans ce repository, vous avez une API minimaliste de ML :
    ├── config                 # Différents fichiers de configurations pour faire tourner le TP
    ├── data                   # Contient le jeu de donnée brut utilisé pour le TP
    ├── models                 # Contient un modèle pré-entraîné
-   ├── source                 # Contient le code source de l'API, organisé selon le pattern [d'architecture hewxagonale](https://blog.octo.com/architecture-hexagonale-trois-principes-et-un-exemple-dimplementation/)
-   │   ├── api                # Les interfaces utilisateurs, ici des routes d'api
-   │   ├── domain             # Le cœur métier
-   │   │   ├── entities       # Des classes métiers
-   │   │   ├── port           # Des classes abstraites pour interagir avec l'infrastructure
-   │   │   ├── usecase        # Des orchestrateurs de tâches
-   │   ├── infrastructure     # Le code pour interagir avec la base de donnée de monitoring et le registre de modèle
-   ├── ...                    # Différents fichiers de config
-   ├── run.py                 # Le script pour lancer l'API
-```   
+   ├── source                 # Contient le code source de l'API
+   │   ├── api               # Les interfaces utilisateurs, ici des routes d'api
+   │   ├── domain           # Le cœur métier
+   │   │   ├── entities    # Des classes métiers
+   │   │   ├── port        # Des classes abstraites pour interagir avec l'infrastructure
+   │   │   ├── usecase     # Des orchestrateurs de tâches
+   │   ├── infrastructure   # Le code pour interagir avec la base de donnée de monitoring et le registre de modèle
+   ├── ...                   # Différents fichiers de config
+   ├── run.py                # Le script pour lancer l'API
+```
 
 ## Accéder au Swagger de l'api
 
-Durée : 5min
+Durée : 5 min
 
-Swagger est un langage de description d'interface permettant de décrire des API exprimées à l'aide de JSON. Swagger est
-utilisé avec toute une série d'outils logiciels open source pour concevoir, créer, documenter et utiliser des services
-Web.
+Swagger est un langage de description d'interface permettant de décrire des API exprimées à l'aide de JSON.
+Swagger est utilisé avec toute une série d'outils logiciels open source pour concevoir, créer, documenter et utiliser des services Web.
 
 Nous allons accéder à cette interface pour voir les routes d'API et interagir avec elles.
 
@@ -118,15 +127,15 @@ address = https://lab.aws.octo.training/jupyter/user/admin/swagger/  # TODO Remp
 python_path = python3 # TODO Insérer le path vers votre env conda (que vous pouvez trouver en tapant which python, le résultat sera sans doute /opt/conda/envs/mlops_3/bin/python)
 
 [api] # Ce qui concerne le TP
-run_dot_py_file_path = run.py  # TODO Insérer le path vers le fichier run.py du TP soit `Formation-MLOps-3.py`
+run_dot_py_file_path = run.py  # TODO Insérer le path vers le fichier run.py du TP soit `Formation-MLOps-3/run.py`
 ```
 
-Une fois cela fait, vous pouvez cliquer sur l'icône API dans le launcher, puis ajouter /docs pour voir le swagger.
+Une fois cela fait, vous pouvez cliquer sur l'icône API dans le launcher, puis ajouter `/docs` à l'url pour voir le swagger.
 
 Tester la route `/health` pour vérifier que tout marche bien.
 
 NB : En background, l'API a été lancé en auto reload, ce qui fait que toutes les modifications que l'on apportera
-relancerons l'API.
+relanceront l'API.
 
 Les logs de l'API sont visibles dans `/home/jovyan/api_logfile.log`
 
@@ -146,14 +155,16 @@ Tous les process ont été arrêtés.
 
 #### Version command line
 
-Il faut : tuer `uvicorn` avant ses workers. Pour cela :
+Il faut tuer `uvicorn` avant ses workers.
+
+Pour cela :
 
 1. Avec la commande `ps -ef | grep python` trouver le processus qui contient `python3 Formation-MLOps-3/run.py`
 2. Noter le PID (c'est le premier nombre de la ligne)
-3. Exécuter la commande `kill -9 PID` cela va tuer le processus uvicorn qui va essayer de redémarrer, il n'y arrivera
-   pas car le worker utilise encore le port
-4. Trouver le (ou les) worker qui contient `/opt/conda/bin/python3 -c from multiprocessing.spawn import spawn_main;`, le
-   tuer avec `kill -9 PID`
+3. Exécuter la commande `kill -9 PID` cela va tuer le processus uvicorn qui va essayer de redémarrer, il n'y arrivera pas car le worker utilise encore le port
+4.
+   1. Trouver le (ou les) processus qui contien(ne)t `/opt/conda/bin/python3 -c from multiprocessing.spawn import spawn_main;`
+   2. Le(s) tuer avec `kill -9 PID`
 5. L'API va ainsi redémarrer.
 
 ## Lien vers le TP suivant

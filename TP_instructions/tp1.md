@@ -31,7 +31,7 @@ Il n'y a pas particulièrement de nouveauté sur cette branche
 
 Durée : 5 minutes
 
-Dans le Swagger, essayer l'API, en mettant un niveau d'éducation (exemple : PhD), un age et un revenu.
+Dans le Swagger, essayer l'API, en mettant un niveau d'éducation (exemple : PhD), un âge et un revenu.
 
 Normalement l'API vous retourne une prédiction
 

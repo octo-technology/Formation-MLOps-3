@@ -65,20 +65,20 @@ Nous allons créer une règle pour déclencher des alertes.
 6. Dans `alert evaluation behavior`, nous allons configurer un groupe d'alertes et la durée au bout de laquelle elle se
    déclenche :
     - Dans `Folder`, choisir `add_new` et lui donner le nom `alert_folder_prenom`
-    - Dans `Evaluation group`, reseigner `alert_evaluation_group_prenom`
+    - Dans `Evaluation group`, renseigner `alert_evaluation_group_prenom`
     - Dans `Evaluation interval`, choisir `every 30s` (doit être un multiple de 10s). Il s'agit de la fréquence d'évaluation de l'alerte, il sera commun à toutes les alertes de cet `Evaluation group`
     - Dans `for`, choisir `30s`, c'est le délai pendant lequel le seuil doit être dépassé pour déclencher une alerte
 
    NB : Dans la "vraie" vie, les noms choisis seront explicites !
    ![alert_evaluation_behavior.png](./images/tp4/alert_evaluation_behavior.png)
-1. Finalement, nous allons configurer un label pour envoyer les notifications aux bonnes personnes.
+7. Finalement, nous allons configurer un label pour envoyer les notifications aux bonnes personnes.
     - Dans `Notifications`, `Labels`, `Choose key`, taper `trainee`
     - Dans `Choose value`, indiquer votre prénom
 
    ![notification.png](./images/tp4/notification.png)
-2. En haut à droite, cliquer sur `Save and exist`
+8. En haut à droite, cliquer sur `Save and exist`
 
-Nous venons de crer une alerte. Il faut maintenant définir un envoi de mail pour cette alerte.
+Nous venons de créer une alerte. Il faut maintenant définir un envoi de mail pour cette alerte.
 
 ## Définir une notification policy
 
@@ -118,4 +118,3 @@ En attendant le reste du groupe, vous pouvez créer une alerte sur l'âge.
 ## Lien vers le TP suivant
 
 Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp5#0)
-# TODO Formateur

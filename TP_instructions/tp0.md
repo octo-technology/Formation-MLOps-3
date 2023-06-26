@@ -98,14 +98,14 @@ Dans ce repository, vous avez une API minimaliste de ML :
    ├── data                   # Contient le jeu de donnée brut utilisé pour le TP
    ├── models                 # Contient un modèle pré-entraîné
    ├── source                 # Contient le code source de l'API
-   │   ├── api               # Les interfaces utilisateurs, ici des routes d'api
-   │   ├── domain           # Le cœur métier
-   │   │   ├── entities    # Des classes métiers
-   │   │   ├── port        # Des classes abstraites pour interagir avec l'infrastructure
-   │   │   ├── usecase     # Des orchestrateurs de tâches
-   │   ├── infrastructure   # Le code pour interagir avec la base de donnée de monitoring et le registre de modèle
-   ├── ...                   # Différents fichiers de config
-   ├── run.py                # Le script pour lancer l'API
+   │   ├── api                # Les interfaces utilisateurs, ici des routes d'api
+   │   ├── domain             # Le cœur métier
+   │   │   ├── entities       # Des classes métiers
+   │   │   ├── port           # Des classes abstraites pour interagir avec l'infrastructure
+   │   │   ├── usecase        # Des orchestrateurs de tâches
+   │   ├── infrastructure     # Le code pour interagir avec la base de donnée de monitoring et le registre de modèle
+   ├── ...                    # Différents fichiers de config
+   ├── run.py                 # Le script pour lancer l'API
 ```
 
 ## Accéder au Swagger de l'api
@@ -144,7 +144,7 @@ Les logs de l'API sont visibles dans `/home/jovyan/api_logfile.log`
 Comme l'API est lancé en background sur l'environnement de TP avec un port en particulier, `kill` l'API requiert
 quelques manipulations.
 
-#### Version redémarrer le server
+#### Technique n°1 : redémarrer le server
 
 L'autre option est de redémarrer votre server de TP :
 
@@ -153,7 +153,7 @@ L'autre option est de redémarrer votre server de TP :
 
 Tous les process ont été arrêtés.
 
-#### Version command line
+#### Technique n°2 : en ligne de commande
 
 Il faut tuer `uvicorn` avant ses workers.
 

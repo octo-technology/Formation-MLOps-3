@@ -32,7 +32,7 @@ Les nouveautés sur cette branche sont les suivantes :
 
 Pour réaliser ce TP les tirs de performance se feront depuis votre PC personnel.
 
-Pour cela:
+Pour cela :
 
 1. Cloner le repository `git clone https://github.com/octo-technology/Formation-MLOps-3.git`
 2. Entrer dans le dossier contenant le repository : `cd Formation-MLOps-3`
@@ -45,7 +45,7 @@ Pour pouvoir faire un tir de performance sur une machine déployée, il faut s'a
 Dans le cas de notre machine de TP, l'authentification se fait avec un header `Cookie`, nous allons le récupérer dans
 notre navigateur :
 
-1. Aller sur l'interface Swagger utilisée dans les TPs précédent
+1. Aller sur l'interface Swagger utilisée dans les TPs précédents
 2. Clic droit, inspecter
 3. Aller dans l'onglet `Network` qui est apparu
 4. Lancer une requête en remplaçant `/docs` par `/health` dans l'URL
@@ -110,5 +110,3 @@ Avec des tirs de performance as-code, il est possible de configurer de nombreux 
 ## Lien vers le TP suivant
 
 Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp7#0)
-
-# TODO

@@ -81,7 +81,8 @@ Les colonnes contiennent les informations suivantes :
 
 ## Charger les données d'entraînement
 
-Pour ce TP, les données utilisées pour l'entraînement du modèle sont disponibles dans [./data/customer_data.csv](./data/customer_data.csv)
+Pour ce TP, les données utilisées pour l'entraînement du modèle sont disponibles
+dans [./data/customer_data.csv](./data/customer_data.csv)
 
 Les charger avec `pandas` :
 
@@ -95,10 +96,12 @@ Pour réaliser une comparaison de ces jeux de données, nous allons utiliser la 
 
 ```python
 from deepchecks.tabular.suites import full_suite
+from deepchecks.tabular import Dataset
 
 suite = full_suite()
 variables = ['education', 'age', 'income']
-result = suite.run(training_df[variables], monitoring_df[variables], )
+cat_features = ['education']
+suite.run(Dataset(training_df[variables], cat_features=cat_features), Dataset(monitoring_df[variables], cat_features=cat_features),  )
 ```
 
 Deepchecks permet normalement de présenter directement un widget dans le notebook.
@@ -117,4 +120,3 @@ Finalement, explorer les résultats fournis.
 
 Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp4#0)
 
-# TODO Formateur

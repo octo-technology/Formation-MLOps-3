@@ -67,7 +67,7 @@ Pour lancer le tir de performance:
     - Number of user : nombre d'utilisateurs simulés. Commençons par `10`.
     - Spawn rate : nombre de créations d'utilisateurs par seconde. Commençons par `1`.
     - Host : route du server sur lequel faire le test. `https://lab.aws.octo.training/jupyter/user/admin/swagger/`
-       ⚠️ Remplacez `admin` par votre user.
+       ⚠️ Remplacer `admin` par votre user.
 4. Cliquer sur start swarming.
 5. Verifier que cela fonctionne :
     - Est-ce que les appels finissent en succès ?

@@ -81,8 +81,7 @@ Les colonnes contiennent les informations suivantes :
 
 ## Charger les données d'entraînement
 
-Pour ce TP, les données utilisées pour l'entraînement du modèle sont disponibles
-dans [./data/customer_data.csv](./data/customer_data.csv)
+Pour ce TP, les données utilisées pour l'entraînement du modèle sont disponibles dans [./data/customer_data.csv](./data/customer_data.csv)
 
 Les charger avec `pandas` :
 

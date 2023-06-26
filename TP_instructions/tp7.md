@@ -59,7 +59,7 @@ Ce décorateur permet de spécifier :
 - `offline` : Précise si un appel API est réalisé pour récupérer les émissions CO2e/kWh de votre pays
 - `country_iso_code` : Le pays dans lequel vous êtes
 
-Pour finir, allez dans le Swagger et lancez un entraînement sur la route train pour que l'on commence à logger.
+Pour finir, aller dans le Swagger et lancer un entraînement sur la route train pour que l'on commence à logger.
 
 ## Analyser les résultats
 

@@ -28,17 +28,17 @@ Les nouveautés sur cette branche sont les suivantes :
 
 ## Installer les nouvelles dépendances
 
-Dans votre terminal, avec le bon environnement activé lancer la commande
+Dans votre terminal, avec le bon environnement activé, lancer la commande:
 
 ```shell
 pip install -r requirements.txt
 ```
 
-Cette commande va vérifier que tout est bien installé, et notamment installer `deepchecks`
+Cette commande vérifie que tout est bien installé, et installe notamment `deepchecks`
 
 ## Récupérer les inférences passées
 
-Pour explorer l'outil deepchecks, nous allons faire une première exploration dans un notebook.
+Pour explorer l'outil deepchecks, nous allons faire une première étude dans un notebook.
 
 1. Pour utiliser votre kernel dans le notebook, lancer dans un terminal la
    commande : `python -m ipykernel install --user --name=mlops_3`
@@ -58,7 +58,7 @@ PostGreSql de monitoring.
 2. Créer une connection à la base de données
    ```python
    engine = create_engine('postgresql://postgres:postgres@postgres:5432/postgres')
-   ```  
+   ```
 3. Lire les données
    ```python
    monitoring_df = pd.read_sql('monitoring_sells_forecast', engine)
@@ -81,8 +81,7 @@ Les colonnes contiennent les informations suivantes :
 
 ## Charger les données d'entraînement
 
-Pour ce TP, les données utilisées pour l'entraînement du modèle sont disponibles
-dans [./data/customer_data.csv](./data/customer_data.csv)
+Pour ce TP, les données utilisées pour l'entraînement du modèle sont disponibles dans [./data/customer_data.csv](./data/customer_data.csv)
 
 Les charger avec `pandas` :
 
@@ -96,14 +95,17 @@ Pour réaliser une comparaison de ces jeux de données, nous allons utiliser la 
 
 ```python
 from deepchecks.tabular.suites import full_suite
+from deepchecks.tabular import Dataset
 
 suite = full_suite()
 variables = ['education', 'age', 'income']
-result = suite.run(training_df[variables], monitoring_df[variables], )
+cat_features = ['education']
+suite.run(Dataset(training_df[variables], cat_features=cat_features), Dataset(monitoring_df[variables], cat_features=cat_features),  )
 ```
 
-Deepchecks, permet normalement de présenter directement un widget dans le notebook. Malheureusement, notre
-infrastructure de TP ne nous permet (actuellement pas) de le visionner. Nous allons donc sauvegarder cela sous forme `html`
+Deepchecks permet normalement de présenter directement un widget dans le notebook.
+Malheureusement, notre infrastructure de TP ne nous permet (actuellement pas) de le visionner.
+Nous allons donc sauvegarder cela sous forme `html`.
 
 ```python
 result.save_as_html('deepchecks_results.html')
@@ -117,4 +119,3 @@ Finalement, explorer les résultats fournis.
 
 Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp4#0)
 
-# TODO Formateur

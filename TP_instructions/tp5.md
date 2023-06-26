@@ -10,7 +10,7 @@ Feedback Link: https://github.com/octo-technology/Formation-MLOps-3/issues/new/c
 
 Durée : 5 minutes
 
-### À l'issue de ce TP, vous aurez découvert
+### À l'issue de ce TP, vous aurez découvert :
 
 - Qu'il est assez facile de faire prédire n'importe quoi à un modèle.
 - Comment se protéger face à ce genre d'attaque
@@ -32,17 +32,15 @@ Les nouveautés sur cette branche sont les suivantes :
 
 En tant qu'attaquant, nous souhaitons faire prédire une valeur négative à notre modèle.
 
-Manipulez les données fournies en entrée, essayer des valeurs extrêmes jusqu'à ce que le modèle prédise une valeur
-négative.
+En manipulant les données fournies en entrée, essayer des valeurs extrêmes jusqu'à ce que le modèle prédise une valeur négative.
 
 ## Empêcher la faille de se reproduire
 
-Comme nous avons identifié une règle métier (l'inférence ne peut pas être négative), nous vous proposons de
-l'implémenter comme contrôle qualité de notre inférence.
+Comme nous avons identifié une règle métier (l'inférence ne peut pas être négative), nous vous proposons de l'implémenter comme contrôle qualité de notre inférence.
 
 En utilisant `pandera` il est possible de contrôler également les outputs.
 
-Pour cela décorer la fonction `predict_model` avec le décorateur
+Pour cela, décorer la fonction `predict_model` avec le décorateur:
 
 ```python
 @pa.check_output(PredictionSchema)
@@ -50,17 +48,15 @@ def predict_model(df: pd.DataFrame, model_handler: ModelHandler) -> pd.DataFrame
     ...
 ```
 
-Puis définir un `PredictionSchema` en s'inspirant du schema RawCustomerSchema
+Puis définir un `PredictionSchema` en s'inspirant du schema:
+`source.domain.entities.customer_data_schema.RawCustomerSchema`
 
 ## Enrichir le schéma des inputs
 
-Nous avons également identifié une faille dans les inputs, nous n'avons pas fixé de limites sur les valeurs pour l'âge
-des clients alors que le métier nous dit qu'ils ont entre 18 et 125 ans.
+Nous avons également identifié une faille dans les inputs: nous n'avons pas fixé de limites sur les valeurs pour l'âge des clients alors que le métier nous dit qu'ils ont entre 18 et 125 ans.
 
 Implémenter ce contrôle dans le schéma.
 
 ## Lien vers le TP suivant
 
-Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp4#0)
-
-# TODO Formateur
+Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp6#0)

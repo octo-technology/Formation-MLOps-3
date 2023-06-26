@@ -31,7 +31,7 @@ Il n'y a pas particulièrement de nouveauté sur cette branche
 
 Durée : 5 minutes
 
-Dans le Swagger, essayer l'API, en mettant un niveau d'éducation (exemple : PhD) et un age.
+Dans le Swagger, essayer l'API, en mettant un niveau d'éducation (exemple : PhD), un âge et un revenu.
 
 Normalement l'API vous retourne une prédiction
 
@@ -39,18 +39,18 @@ Normalement l'API vous retourne une prédiction
 
 Durée : 5 minutes
 
-La documentation propose de mettre Engineer dans le champ éducation... essayez.
+La documentation propose de mettre Engineer dans le champ éducation... essayer.
 
-L'API retourne maintenant une erreur 500 sans plus d'explications. Nous avons notre premier bug
+L'API retourne maintenant une erreur 500 sans plus d'explications. Nous avons notre premier bug.
 
 ## Debugger et corriger
 
 Durée : 15 minutes
 
-- Explorez le code pour identifier la source de l'erreur.
-- Rendez l'erreur plus explicite. (Conseil : Le type hinting sur fastapi permet de renvoyer une erreur 422 lorsque le
+- Explorer le code pour identifier la source de l'erreur.
+- Rendre l'erreur plus explicite. (Conseil: Le type hinting sur fastapi permet de renvoyer une erreur 422 lorsque le
   type ne correspond pas).
-- Mettez à jour la documentation (la docstring) de la route d'API
+- Mettre à jour la documentation (la docstring) de la route d'API
 
 ## Lien vers le TP suivant
 

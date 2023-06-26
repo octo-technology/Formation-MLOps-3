@@ -7,7 +7,7 @@ class PredictionSchema(pa.DataFrameModel):
     )
 
     @pa.check("inference", name="is_inference_valid")
-    def is_education_valid(
+    def is_inference_valid(
             cls, inference: pa.typing.Series[pa.typing.Float64]
     ) -> pa.typing.Series[bool]:
         return inference.between(0., 100000)

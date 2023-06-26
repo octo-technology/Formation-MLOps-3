@@ -66,16 +66,16 @@ Pour lancer le tir de performance:
 3. Pour configurer :
     - Number of user : nombre d'utilisateurs simulés. Commençons par `10`.
     - Spawn rate : nombre de créations d'utilisateurs par seconde. Commençons par `1`.
-    - Host : route du server sur lequel faire le test. `https://lab.aws.octo.training/jupyter/admin/swagger/` ⚠️
-      Remplacez `admin` par votre user.
+    - Host : route du server sur lequel faire le test. `https://lab.aws.octo.training/jupyter/user/admin/swagger/`
+       ⚠️ Remplacez `admin` par votre user.
 4. Cliquer sur start swarming.
 5. Verifier que cela fonctionne :
     - Est-ce que les appels finissent en succès ?
-    - Dans le fichier de log `logfile.log` sur le lab, est-ce que les appels apparaissent ?
+    - Dans le fichier de log `api_logfile.log` sur le lab, est-ce que les appels apparaissent ?
 
 ## Faire des tirs de performance sur la route predict
 
-1. Modifier le fichier `locustfile.py` en remplaçant l'appel sur la route `/health` par un appel sur la route `/predict` avec les bons querry paramets.
+1. Modifier le fichier `locustfile.py` en remplaçant l'appel sur la route `/health` par un appel sur la route `/predict` avec les bons query parameters.
 
    Par exemple : `/predict?education=PhD&age=12`
 
@@ -95,7 +95,7 @@ Si vous n'avez pas d'idée, voir la section d'après.
 
 Comme idée d'amélioration, nous vous proposons :
 
-1. De charger le modèle au marriage de l'application plutôt qu'à chaque prédiction.
+1. De charger le modèle au mariage de l'application plutôt qu'à chaque prédiction.
 2. D'augmenter le nombre de worker de votre API. Avec l'argument `workers` de `uvicorn.run`.
     - Attention, il faut désactiver auto-reload pour que cela ait un effet.
     - Attention, les modifications sur le fichier run.py concernent uvicorn, le `reload` n'aura pas d'impact. Il faut killer toute l'API.

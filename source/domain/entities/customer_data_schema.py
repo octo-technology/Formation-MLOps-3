@@ -22,9 +22,9 @@ class RawCustomerSchema(pa.DataFrameModel):
 
     @pa.check("income", name="is_income_valid")
     def is_income_valid(
-            cls, purchase_frequency: pa.typing.Series[pa.typing.Float64]
+            cls, income: pa.typing.Series[pa.typing.Float64]
     ) -> pa.typing.Series[bool]:
-        return purchase_frequency.between(0., 100000)
+        return income.between(0., 100000)
 
     class Config:
         name = "RawCustomerSchema"

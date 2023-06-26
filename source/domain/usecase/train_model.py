@@ -2,18 +2,16 @@ import os
 
 import mlflow.sklearn
 import pandas as pd
-import pandera as pa
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 
 from data import DATA_PATH
 from source.domain.entities.customer_columns import DataSetColumns, EDUCATION_LEVEL
-from source.domain.entities.customer_data_schema import RawCustomerSchema
 from source.domain.port.model_handler import ModelHandler
 
 
-def prepare_data(raw_customer_df: pa.typing.DataFrame[RawCustomerSchema]):
+def prepare_data(raw_customer_df: pd.DataFrame):
     raw_customer_df = raw_customer_df.merge(EDUCATION_LEVEL, on=DataSetColumns.education).drop(
         columns=[DataSetColumns.education])
     return raw_customer_df

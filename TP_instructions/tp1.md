@@ -9,7 +9,7 @@ Feedback Link: https://github.com/octo-technology/Formation-MLOps-3/issues/new/c
 
 ## Vue d'ensemble
 
-Duration: 5 minutes
+Duration: 0:05:00
 
 ### À l'issue de ce TP, vous aurez découvert
 

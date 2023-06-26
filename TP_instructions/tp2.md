@@ -4,7 +4,7 @@ status: Published
 authors: OCTO Technology
 Feedback Link: https://github.com/octo-technology/Formation-MLOps-3/issues/new/choose
 
-# TP3 - Valider les données avec pandera
+# TP2 - Valider les données avec pandera
 
 ## Vue d'ensemble
 
@@ -28,8 +28,7 @@ git checkout 2_start_tp_pandera
 Les nouveautés sur cette branche sont les suivantes :
 
 - Le `requirements.txt` contient une nouvelle dépendance : `pandera`
-- Un nouveau fichier [source/domain/entities/customer_data_schema.py](source/domain/entities/customer_data_schema.py)
-  qui propose un template de schéma de validation
+- Un nouveau fichier [source/domain/entities/customer_data_schema.py](source/domain/entities/customer_data_schema.py) qui propose un template de schéma de validation
 
 ## Installer les dépendances
 
@@ -39,14 +38,13 @@ Dans votre terminal, avec le bon environnement activé lancer la commande
 pip install -r requirements.txt
 ```
 
-Cette commande va vérifier que tout est bien installé, et notamment installer `panderas`
+Cette commande vérifie que tout est bien installé, et installe notamment `panderas`
 
 ## Rajouter des vérifications
 
-Observer le module `source/entities/customer_data_schema`
+Observer le module `source/domain/entities/customer_data_schema`
 
-Nous avons pré-défini un ensemble de validation en utilisant Pandera
-notamment [DataFrameModel](https://pandera.readthedocs.io/en/stable/dataframe_models.html).
+Nous avons pré-défini un ensemble de validation en utilisant Pandera notamment [DataFrame Model](https://pandera.readthedocs.io/en/stable/dataframe_models.html).
 
 ## Valider les données
 
@@ -57,9 +55,9 @@ devez faire :
 2. Vérifier bien que le type de la colonne est bien celui qui est attendue dans les données brutes
 3. Ajouter un check custom pour vérifier à chaque fois que la valeur est compris entre 0 et 100000 (vous pouvez vous
    inspirer du check sur la colonne education)
-4. Ajouter la validation sur la méthode prepare data grâce au décorateur @pa.check_input(RawCustomerSchema)
-5. Dans le swagger faire un `train` pour vérifier les données : il n'y a pas d'erreur.
-6. Dans le swagger faire un `predict` avec un income à -10 : Observer les logs
+4. Ajouter la validation sur la méthode `source.domain.usecase.prepare_data` grâce au décorateur @pa.check_input(RawCustomerSchema)
+5. Dans le swagger, faire un `train` pour vérifier les données : il n'y a pas d'erreur.
+6. Dans le swagger, faire un `predict` avec un income à -10 : observer les logs
 7. Remplacer le decorator @pa.check_input par @validate_input, celui là filtrera les erreurs de l'input
 
 ## Pour aller plus loin
@@ -68,4 +66,4 @@ Explorer les autres vérifications possibles à mettre en place.
 
 ## Lien vers le TP suivant
 
-Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp4#0)
+Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp3#0)

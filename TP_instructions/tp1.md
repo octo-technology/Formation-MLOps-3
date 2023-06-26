@@ -54,4 +54,4 @@ Durée : 15 minutes
 
 ## Lien vers le TP suivant
 
-Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp2#0)
+Les instructions du TP suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp2#0)

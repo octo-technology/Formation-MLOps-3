@@ -117,4 +117,4 @@ En attendant le reste du groupe, vous pouvez créer une alerte sur l'âge.
 
 ## Lien vers le TP suivant
 
-Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp5#0)
+Les instructions du TP suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp5#0)

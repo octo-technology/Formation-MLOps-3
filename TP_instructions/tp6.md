@@ -109,4 +109,4 @@ Avec des tirs de performance as-code, il est possible de configurer de nombreux 
 
 ## Lien vers le TP suivant
 
-Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp7#0)
+Les instructions du TP suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp7#0)

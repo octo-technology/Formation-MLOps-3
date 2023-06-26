@@ -66,4 +66,4 @@ Explorer les autres vérifications possibles à mettre en place.
 
 ## Lien vers le TP suivant
 
-Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp3#0)
+Les instructions du TP suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp3#0)

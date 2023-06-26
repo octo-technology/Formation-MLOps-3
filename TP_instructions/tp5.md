@@ -59,4 +59,4 @@ Implémenter ce contrôle dans le schéma.
 
 ## Lien vers le TP suivant
 
-Les instructions du tp suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp6#0)
+Les instructions du TP suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp6#0)

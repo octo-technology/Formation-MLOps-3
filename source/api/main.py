@@ -6,6 +6,7 @@ from fastapi import FastAPI
 from config.api_server import SERVER_ADRESS
 from config.monitoring_config import DB_CONNECTION_STRING
 from source.domain.entities.customer_columns import DataSetColumns, Education
+from source.domain.entities.model_type import ModelType
 from source.domain.usecase.monitor import monitor
 from source.domain.usecase.predict_model import predict_model, INFERENCE_COL
 from source.domain.usecase.train_model import train_model
@@ -34,18 +35,11 @@ def train():
             'Test mean_squared_error': performance_test}
 
 
-@app.get("/predict")
-def predict(education: Education, age: int, income: float):
-    """
-
-    :param education: Le niveau d'étude de la personne (High School, Bachelor, Master, PhD)
-    :param age: age of client
-    :param income: income of client
-    :return:
-    """
+@app.get("/v1/predict/{model}")
+def predict(model: ModelType, education: Education, age: int, income: float):
     df = pd.DataFrame({DataSetColumns.education: [education], DataSetColumns.age: [age],
                        DataSetColumns.income: [income]})
-    inference = predict_model(df=df, model_handler=model_handler)
+    inference = predict_model(df=df, model_handler=model_handler, model=model)
     monitor(df=df, inference=inference, monitoring_handler=monitoring_handler)
     return inference.loc[0, INFERENCE_COL]
 

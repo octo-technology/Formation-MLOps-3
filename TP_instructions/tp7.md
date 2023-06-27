@@ -52,7 +52,7 @@ Nous allons configurer MLflow, pour qu'il puisse charge le modèle actuel :
 5. Cliquer sur `create`
 6. Maintenant cliquer sur le modèle `customer` qui apparaît à l'écran.
 
-![empty_customer_model.png](images%2Ftp7%2Fempty_customer_model.png)
+![empty_customer_model.png](images/tp7/empty_customer_model.png)
 
 Le modèle étant vide, nous allons enregistrer le résultat du dernier entraînement comme modèle associé :
 
@@ -63,7 +63,7 @@ Le modèle étant vide, nous allons enregistrer le résultat du dernier entraîn
 5. Cliquer sur `register`
 6. Retourner dans l'onglet `Models` et cliquer sur `customer`, apparaît alors une version du modèle :
 
-![customer_model_with_one_version.png](images%2Ftp7%2Fcustomer_model_with_one_version.png)
+![customer_model_with_one_version.png](images/tp7/customer_model_with_one_version.png)
 
 Maintenant qu'une version du modèle existe, nous allons le promouvoir en `Production`:
 

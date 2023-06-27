@@ -35,10 +35,13 @@ Duration: 0:10:00
 Jusqu'à maintenant, le code d'inférence chargeait un model sauvegardé localement, le code de chargement est le suivant :
 
 ```python
-        try:
-return mlflow.pyfunc.load_model(model_uri=f"models:/customer/{model}")
+try:
+   model = mlflow.pyfunc.load_model(model_uri=f"models:/customer/{model}")
+   logging.info('Successfully loaded model from MLflow')
+   return model
 except MlflowException:
-return joblib.load(MODEL_PATH)
+   logging.info('Failed to load model from MLflow, loading default model')
+   return joblib.load(MODEL_PATH)
 ```
 
 Si le code ne parvient pas à charger le modèle, il charge le modèle local.

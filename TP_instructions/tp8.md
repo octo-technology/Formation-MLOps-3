@@ -12,7 +12,7 @@ Duration: 0:02:00
 
 ### À l'issue de ce TP, vous aurez découvert :
 
-- L' outil code carbone
+- L'outil code carbone
 
 ### Présentation des nouveautés sur la branche de ce TP
 

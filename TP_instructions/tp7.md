@@ -32,6 +32,7 @@ Les nouveautés sont :
 
 Duration: 0:10:00
 
+### Créer un modèle dans le registre
 Jusqu'à maintenant, le code d'inférence chargeait un model sauvegardé localement, le code de chargement est le suivant :
 
 ```python
@@ -57,6 +58,7 @@ Nous allons configurer MLflow, pour qu'il puisse charge le modèle actuel :
 
 ![empty_customer_model.png](images/tp7/empty_customer_model.png)
 
+### Enregistrer un modèle entraîné
 Le modèle étant vide, nous allons enregistrer le résultat du dernier entraînement comme modèle associé :
 
 1. Aller dans l'onglet `Experiments`
@@ -68,6 +70,7 @@ Le modèle étant vide, nous allons enregistrer le résultat du dernier entraîn
 
 ![customer_model_with_one_version.png](images/tp7/customer_model_with_one_version.png)
 
+### Promouvoir le modèle en production
 Maintenant qu'une version du modèle existe, nous allons le promouvoir en `Production`:
 
 1. Cliquer sur la `version 1`
@@ -78,6 +81,7 @@ Nous avons alors un modèle en production, vérifions que cela fonctionne :
 
 1. Réaliser une prédiction dans le Swagger
 2. Aller regarder dans le fichier `api_logfile.log` que la log indique 'Successfully loaded model from MLflow'
+
 
 ## Réaliser un nouvel entraînement et mettre le modèle en staging
 

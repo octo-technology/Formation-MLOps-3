@@ -16,4 +16,6 @@ Pour suivre ce TP, nous allons utiliser les GitHub pages suivantes :
 
 [TP 6 Réaliser un tir de performance sur l'API](https://octo-technology.github.io/Formation-MLOps-3/tp6#0)
 
-[TP 7 Mesurer l'impact CO2 avec codecarbon](https://octo-technology.github.io/Formation-MLOps-3/tp7#0)
+[TP 7 Changer de modèle](https://octo-technology.github.io/Formation-MLOps-3/tp7#0)
+
+[TP 8 Mesurer l'impact CO2 avec codecarbon](https://octo-technology.github.io/Formation-MLOps-3/tp7#0)

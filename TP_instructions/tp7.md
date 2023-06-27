@@ -1,10 +1,10 @@
-summary: TP7 - Mesurer le carbone émis par l'entraînement
+summary: TP7 - Changer de modèle de ML
 id: tp7
 status: Published
 authors: OCTO Technology
 Feedback Link: https://github.com/octo-technology/Formation-MLOps-3/issues/new/choose
 
-# TP7 - Mesurer le carbone émis par l'entraînement
+# TP7 - Changer de modèle de ML
 
 ## Vue d'ensemble
 
@@ -12,61 +12,98 @@ Duration: 0:02:00
 
 ### À l'issue de ce TP, vous aurez découvert :
 
-- L' outil code carbone
+- Le registre de modèle de MLFlow
+- Mettre en place des versions d'une route d'API
 
 ### Présentation des nouveautés sur la branche de ce TP
 
 Récupérer la branche du TP :
 
 ```shell
-git checkout 7_start_tp_code_carbon
+git checkout 7_start_tp_change_model
 ```
 
-Les nouveautés sur cette branche sont les suivantes :
+Les nouveautés sont :
 
-- Le `requirements.txt` contient une nouvelle dépendance : `codecarbon`
-- Le fichier [.codecarbon.config](.codecarbon.config) qui contient la configuration de codecarbon
+- La route de `predict` est maintenant `/v1/predict`
+- La route de `predict` requiert un query parameter `model` qui doit être soit `production`, soit `staging`.
 
-## Intégrer la mesure du coût carbone de l'entraînement du modèle
+## Enregistrer le modèle actuel sur MLFlow
+
+Duration: 0:10:00
+
+Jusqu'à maintenant, le code d'inférence chargeait un model sauvegardé localement, le code de chargement est le suivant :
+
+```python
+        try:
+return mlflow.pyfunc.load_model(model_uri=f"models:/customer/{model}")
+except MlflowException:
+return joblib.load(MODEL_PATH)
+```
+
+Si le code ne parvient pas à charger le modèle, il charge le modèle local.
+
+Nous allons configurer MLflow, pour qu'il puisse charge le modèle actuel :
+
+1. Se rendre dans l'interface MLflow (à partir de la page d'accueil de jupyterhub)
+2. Aller dans l'onglet `Models`
+3. Cliquer sur `Create Model`
+4. Donner le nom `customer` (ce nom correspond au nom utilisé dans le `mlflow.pyfunc.load_model`)
+5. Cliquer sur `create`
+6. Maintenant cliquer sur le modèle `customer` qui apparaît à l'écran.
+
+![empty_customer_model.png](images%2Ftp7%2Fempty_customer_model.png)
+
+Le modèle étant vide, nous allons enregistrer le résultat du dernier entraînement comme modèle associé :
+
+1. Aller dans l'onglet `Experiments`
+2. Cliquer sur la dernière expérimentation (s'il n'y en a pas, lancer un `train` dans le Swagger)
+3. Dans la section `Artifacts`, cliquer sur `Register Model`
+4. Sélectionner dans le menu déroulant le modèle `customer`
+5. Cliquer sur `register`
+6. Retourner dans l'onglet `Models` et cliquer sur `customer`, apparaît alors une version du modèle :
+
+![customer_model_with_one_version.png](images%2Ftp7%2Fcustomer_model_with_one_version.png)
+
+Maintenant qu'une version du modèle existe, nous allons le promouvoir en `Production`:
+
+1. Cliquer sur la `version 1`
+2. Dans `stage` cliquer sur le menu déroulant, choisir `transition to Production`
+3. Cliquer sur `ok`
+
+Nous avons alors un modèle en production, vérifions que cela fonctionne :
+
+1. Réaliser une prédiction dans le Swagger
+2. Aller regarder dans le fichier `api_logfile.log` que la log indique 'Successfully loaded model from MLflow'
+
+## Réaliser un nouvel entraînement et mettre le modèle en staging
 
 Duration: 0:05:00
 
-Pour réaliser la mesure du coût carbone d'un entraînement, nous allons utiliser le package `codecarbon`
+Nous allons entraîner un nouveau modèle, puis le mettre en staging pour le valider.
 
-Pour cela mettre à jour les dépendances en lançant la commande :
+1. Dans le Swagger lancer la route `/train` pour faire un entraînement
+2. Dans l'interface MLflow, onglet `Experiments` trouver cette expérimentation, enregistrer le modèle sur `customer`
+3. Dans l'interface `Models` promouvoir le nouveau modèle en `staging`
+4. Dans le Swagger faire un appel à la route `/predict` avec pour modèle `staging` pour vérifier que le modèle est
+   fonctionnel.
 
-```shellp
-pip install -r requirements.txt
-```
+## Pour aller plus loin : construire un modèle qui change le contrat d'interface
 
-Cela installe notamment le package `codecarbon`
+Duration: 0:00:00
 
-Ce package est configurable avec un fichier `.codecarbon.config` et nous vous avons fourni la configuration.
+En attendant le reste du groupe, explorer comment réaliser un changement de contrat d'interface.
 
-L'explorer pour voir ce qu'il est possible de configurer.
+Constatant que la variable `income` est peu impactante, le métier nous demande de mettre à jour le modèle et l'API pour
+ne plus utiliser cette variable.
 
-Ensuite, il faut ajouter un décorateur sur la méthode à mesurer.
+1. Entraîner un modèle qui n'utilise plus la variable `income`
+2. Développer une route d'api `v2/predict` qui n'accepte pas l'argument `income`
+3. Récupérer le bon modèle pour faire la prédiction.
 
-Ajouter le décorateur suivant :
 
-```python
-@track_emissions(project_name='...', offline=True, country_iso_code='FRA')
-```
+## Lien vers le TP suivant
 
-Il convient d'importer `track_emissions` de `codecarbon`.
+Duration: 0:01:00
 
-Ce décorateur permet de spécifier :
-
-- `project_name` : Un nom unique retrouvable parmi les emissions calculées. Choisissez en un.
-- `offline` : Précise si un appel API est réalisé pour récupérer les émissions CO2e/kWh de votre pays
-- `country_iso_code` : Le pays dans lequel vous êtes
-
-Pour finir, aller dans le Swagger et lancer un entraînement sur la route train pour que l'on commence à logger.
-
-## Analyser les résultats
-
-Duration: 0:03:00
-
-Code carbon a produit un fichier `/home/jovyan/emissions.csv`.
-
-Ouvrir le csv (soit directement, soit avec `pandas` dans un notebook pour explorer les résultats).
+Les instructions du TP suivant sont [ici](https://octo-technology.github.io/Formation-MLOps-3/tp8#0)

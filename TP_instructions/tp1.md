@@ -54,6 +54,12 @@ Duration: 0:15:00
   type ne correspond pas).
 - Mettre à jour la documentation (la docstring) de la route d'API
 
+Rappel : pour les visualiser en flux, taper dans un terminal la commande : 
+
+```shell
+tail -f /home/jovyan/api_logfile.log
+```
+
 ## Lien vers le TP suivant
 
 Duration: 0:00:30 

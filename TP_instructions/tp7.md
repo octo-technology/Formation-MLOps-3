@@ -80,8 +80,13 @@ Maintenant qu'une version du modèle existe, nous allons le promouvoir en `Produ
 Nous avons alors un modèle en production, vérifions que cela fonctionne :
 
 1. Réaliser une prédiction dans le Swagger
-2. Aller regarder dans le fichier `api_logfile.log` que la log indique 'Successfully loaded model from MLflow'
+2. Aller regarder dans les logs que la log indique 'Successfully loaded model from MLflow'
 
+Rappel : pour les visualiser en flux, taper dans un terminal la commande : 
+
+```shell
+tail -f /home/jovyan/api_logfile.log
+```
 
 ## Réaliser un nouvel entraînement et mettre le modèle en staging
 

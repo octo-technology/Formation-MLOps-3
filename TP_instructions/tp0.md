@@ -147,6 +147,12 @@ relanceront l'API.
 
 Les logs de l'API sont visibles dans `/home/jovyan/api_logfile.log`
 
+Pour les visualiser en flux, taper dans un terminal la commande : 
+
+```shell
+tail -f /home/jovyan/api_logfile.log
+```
+
 ## Pour aller plus loin, apprendre à tuer l'API sur l'environnement de TP
 
 Duration: 0:03:00

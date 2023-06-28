@@ -18,15 +18,26 @@ Duration: 0:03:00
 
 Ce TP ne requiert pas de nouvelle branche, il se fait dans l'interface Grafana
 
-## Créer un point de contact
+## Se connecter à Grafana 
 
-Duration: 0:05:00
+Duration: 0:02:00
 
 Accéder à Grafana à l'adresse [https://lab.aws.octo.training/grafana/alerting](https://lab.aws.octo.training/grafana/alerting).
 
 L'identifiant est collectif à tous les formés : `admin`.
 
 Le mot de passe vous sera communiqué par le formateur.
+
+NB : Le formateur a créé une connection à la postgresql de monitoring : 
+
+- Host : postgres:5432
+- Username: postges
+- Password: postgres
+
+
+## Créer un point de contact
+
+Duration: 0:05:00
 
 Afin de créer une alerte, nous allons créer un point de contact dans Grafana.
 Dans le cadre de ce TP, nous allons utiliser un webhook disponible au sein de notre infrastructure de TP.
@@ -38,7 +49,9 @@ Dans le cadre de ce TP, nous allons utiliser un webhook disponible au sein de no
 5. Dans `Integration`, il est possible de s'intégrer à un serveur mail (SMTP), teams, slack, etc. Choisir dans le menu déroulant `webhook`.
 6. Dans l'URL saisir http://localhost:8095/send_email/votreadresse@domain.com en remplaçant votreadresse@domain.com.
 7. Cliquer sur `Test` pour vérifier que vous recevez bien le mail
-8. Cliquer sur `Save contact point`
+8. Cliquer sur `Save contact point`. 
+
+NB : Si le save ne marche pas, c'est peut-être qu'un autre formé a sauvegardé en même temps, réessayer plusieurs fois. 
 
 ![contact_point.png](./images/tp4/contact_point.png)
 

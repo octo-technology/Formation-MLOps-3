@@ -38,18 +38,24 @@ pip install -r requirements.txt
 
 Cette commande vérifie que tout est bien installé, et installe notamment `deepchecks`
 
-## Récupérer les inférences passées
+## Configurer son notebook
 
 Duration: 0:03:00
 
 Pour explorer l'outil deepchecks, nous allons faire une première étude dans un notebook.
-
-1. Pour utiliser votre kernel dans le notebook, lancer dans un terminal la
+1. Vérifier que l'environnement `mlops_3` est activée : `source activate mlops_3`
+2. Pour utiliser votre kernel dans le notebook, lancer dans un terminal la
    commande : `python -m ipykernel install --user --name=mlops_3`
-2. Cliquer sur le "➕" bleu en haut à droite
-3. Cliquer sur Notebook >> Python3 (ipykernel)
-4. Sélectionner votre kernel (`mlops_3`)
-5. Vérifier que le notebook est fonctionnel exécutant `from deepchecks.tabular.suites import production_suite`
+3. Cliquer sur le "➕" bleu en haut à droite
+4. Cliquer sur Notebook >> Python3 (ipykernel)
+5. Sélectionner votre kernel (`mlops_3`)
+6. Vérifie que le notebook est fonctionnel exécutant `from deepchecks.tabular.suites import production_suite`
+
+Si le kernel ne marche pas, essayer de redémarrer votre environnement de TP : `File` > `Hub Control Panel` > `Stop server` > `Start server`. 
+
+## Récupérer les inférences passées
+
+Duration: 0:03:00
 
 Maintenant que l'on a un notebook fonctionnel, nous allons utiliser `sqlalchemy` pour réaliser des requêtes sur la base
 PostGreSql de monitoring.

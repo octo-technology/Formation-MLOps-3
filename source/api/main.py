@@ -12,6 +12,11 @@ from source.domain.usecase.train_model import train_model
 from source.infrastructure.database_monitoring_handler import DataBaseMonitoringHandler
 from source.infrastructure.file_system_model_handler import FilSystemModelHandler
 
+logger = logging.getLogger("uvicorn")
+logger.setLevel(logging.INFO)
+handler = logging.FileHandler("/home/jovyan/api_logfile.log")
+logger.addHandler(handler)
+
 app = FastAPI(root_path=SERVER_ADRESS)
 model_handler = FilSystemModelHandler()
 monitoring_handler = DataBaseMonitoringHandler(connection_string=DB_CONNECTION_STRING)

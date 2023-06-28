@@ -4,7 +4,7 @@ import pandas as pd
 from fastapi import FastAPI
 
 from config.api_server import SERVER_ADRESS
-from config.monitoring_config import DB_CONNECTION_STRING
+from config.monitoring_config import DB_CONNECTION_STRING, API_LOGFILE_LOG
 from source.domain.entities.customer_columns import DataSetColumns
 from source.domain.usecase.monitor import monitor
 from source.domain.usecase.predict_model import predict_model, INFERENCE_COL
@@ -14,7 +14,7 @@ from source.infrastructure.file_system_model_handler import FilSystemModelHandle
 
 logger = logging.getLogger("uvicorn")
 logger.setLevel(logging.INFO)
-handler = logging.FileHandler("/home/jovyan/api_logfile.log")
+handler = logging.FileHandler(API_LOGFILE_LOG)
 logger.addHandler(handler)
 
 app = FastAPI(root_path=SERVER_ADRESS)

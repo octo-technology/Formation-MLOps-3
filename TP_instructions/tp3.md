@@ -65,10 +65,12 @@ PostGreSql de monitoring.
    from sqlalchemy import create_engine
    import pandas as pd
    ```
+
 2. Créer une connection à la base de données
    ```python
    engine = create_engine('postgresql://postgres:postgres@postgres:5432/postgres')
    ```
+
 3. Lire les données
    ```python
    monitoring_df = pd.read_sql('monitoring_sells_forecast', engine)
@@ -84,10 +86,10 @@ La table résultante ressemble au tableau suivant
 
 Les colonnes contiennent les informations suivantes :
 
-- index : L'id de l'inférence
-- education, age, income : les données fournies par l'utilisateur
-- inference : la valeur de l'inférence retournée
-- datetime : un timestamp de la prédiction en utc
+- `index` : L'id de l'inférence
+- `education`, `age`, `income` : les données fournies par l'utilisateur
+- `inference` : la valeur de l'inférence retournée
+- `datetime` : un timestamp de la prédiction en utc
 
 ## Charger les données d'entraînement
 

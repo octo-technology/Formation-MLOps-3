@@ -108,7 +108,7 @@ from deepchecks.tabular import Dataset
 suite = full_suite()
 variables = ['education', 'age', 'income']
 cat_features = ['education']
-suite.run(Dataset(training_df[variables], cat_features=cat_features), Dataset(monitoring_df[variables], cat_features=cat_features),  )
+result = suite.run(Dataset(training_df[variables], cat_features=cat_features), Dataset(monitoring_df[variables], cat_features=cat_features),  )
 ```
 
 Deepchecks permet normalement de présenter directement un widget dans le notebook.

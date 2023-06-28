@@ -50,8 +50,7 @@ Duration: 0:03:00
 
 Rendez-vous sur votre environnement de développement.
 
-Ouvrez un terminal afin d'y cloner le repository de code des TPs avec la commande `$> git clone <url>;`.
-Vous trouverez l'URL de clonage en HTTPS sur github, dans le repo que vous avez forké.
+Ouvrez un terminal afin d'y cloner le repository de code des TPs avec la commande `$> git clone https://github.com/octo-technology/Formation-MLOps-3.git;`.
 
 Pour ouvrir un terminal il faut cliquer sur en haut à gauche sur `File` puis `New` puis `Terminal`.
 ![bouton clonage](./images/tp0/github-clone-button.png)

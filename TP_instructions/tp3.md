@@ -119,7 +119,7 @@ Nous allons donc sauvegarder cela sous forme `html`.
 result.save_as_html('deepchecks_results.html')
 ```
 
-Double-cliquer, sur le fichier généré pour le visualiser.
+Double-cliquer, sur le fichier généré pour le visualiser. Puis cliquer dans le bandeau en haut sur `trust`. 
 
 Finalement, explorer les résultats fournis.
 

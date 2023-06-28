@@ -59,12 +59,12 @@ devez faire :
 
 1. Déclarer la colonne `income` (vous pouvez inspirer de la déclaration des autres colonnes)
 2. Vérifier bien que le type de la colonne est bien celui qui est attendue dans les données brutes
-3. Ajouter un check custom pour vérifier à chaque fois que la valeur est compris entre 0 et 100000 (vous pouvez vous
+3. Ajouter un [check custom](https://pandera.readthedocs.io/en/stable/dataframe_models.html#custom-checks) pour vérifier à chaque fois que la valeur est compris entre 0 et 100000 (vous pouvez vous
    inspirer du check sur la colonne education)
-4. Ajouter la validation sur la méthode `source.domain.usecase.prepare_data` grâce au décorateur @pa.check_input(RawCustomerSchema)
+4. Ajouter la validation sur la méthode `source.domain.usecase.prepare_data` grâce au décorateur `@pa.check_input(RawCustomerSchema)`
 5. Dans le swagger, faire un `train` pour vérifier les données : il n'y a pas d'erreur.
 6. Dans le swagger, faire un `predict` avec un income à -10 : observer les logs
-7. Remplacer le decorator @pa.check_input par @validate_input, celui là filtrera les erreurs de l'input
+7. Remplacer le decorator `@pa.check_input` par `@validate_input`, celui là filtrera les erreurs de l'input
 
 ## Pour aller plus loin
 

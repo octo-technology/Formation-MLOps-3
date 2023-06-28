@@ -40,6 +40,10 @@ def validate_input(
         args: typing.Tuple[typing.Any, ...],
         kwargs: typing.Dict[str, typing.Any],
     ):
+        if instance is not None:
+            raise Exception(
+                "Unimplemented Case, decorator not usable on classmethod or instancemethod."
+            )
         args = list(args)
         if isinstance(obj_getter, int):
             args[obj_getter] = validate(schema, args[obj_getter])

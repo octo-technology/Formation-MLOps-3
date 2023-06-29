@@ -4,7 +4,7 @@ import pandas as pd
 from fastapi import FastAPI
 
 from config.api_server import SERVER_ADRESS
-from config.monitoring_config import DB_CONNECTION_STRING, API_LOGFILE_LOG
+from config.monitoring_config import DB_CONNECTION_STRING
 from source.domain.entities.customer_columns import DataSetColumns, Education
 from source.domain.entities.model_type import ModelType
 from source.domain.usecase.monitor import monitor
@@ -12,11 +12,6 @@ from source.domain.usecase.predict_model import predict_model, INFERENCE_COL
 from source.domain.usecase.train_model import train_model
 from source.infrastructure.database_monitoring_handler import DataBaseMonitoringHandler
 from source.infrastructure.file_system_model_handler import FilSystemModelHandler
-
-logger = logging.getLogger("uvicorn")
-logger.setLevel(logging.INFO)
-handler = logging.FileHandler(API_LOGFILE_LOG)
-logger.addHandler(handler)
 
 app = FastAPI(root_path=SERVER_ADRESS)
 model_handler = FilSystemModelHandler()

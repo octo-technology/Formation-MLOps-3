@@ -6,6 +6,7 @@ import mlflow
 from mlflow import MlflowException
 
 from models import MODEL_REGISTRY
+from source.api.logger import logger
 from source.domain.entities.model_type import ModelType
 from source.domain.port.model_handler import ModelHandler
 
@@ -19,8 +20,8 @@ class FilSystemModelHandler(ModelHandler):
     def load_model(self, model: ModelType):
         try:
             model = mlflow.pyfunc.load_model(model_uri=f"models:/customer/{model}")
-            logging.info('Successfully loaded model from MLflow')
+            logger.info('Successfully loaded model from MLflow')
             return model
         except MlflowException:
-            logging.info('Failed to load model from MLflow, loading default model')
+            logger.info('Failed to load model from MLflow, loading default model')
             return joblib.load(MODEL_PATH)

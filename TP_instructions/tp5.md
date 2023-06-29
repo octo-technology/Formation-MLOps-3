@@ -55,11 +55,19 @@ def predict_model(df: pd.DataFrame, model_handler: ModelHandler) -> pd.DataFrame
 Puis définir un `PredictionSchema` en s'inspirant du schema:
 `source.domain.entities.customer_data_schema.RawCustomerSchema`
 
+Tester votre API en vérifiant que l'attaque ne passe plus.
+
+Rappel : pour les visualiser en flux, taper dans un terminal la commande : 
+
+```shell
+tail -f /home/jovyan/api_logfile.log
+```
+
 ## Enrichir le schéma des inputs
 
 Duration: 0:05:00
 
-Nous avons également identifié une faille dans les inputs: nous n'avons pas fixé de limites sur les valeurs pour l'âge des clients alors que le métier nous dit qu'ils ont entre 18 et 125 ans.
+Nous avons également identifié une faille dans les inputs : nous n'avons pas fixé de limites sur les valeurs pour l'âge des clients alors que le métier nous dit qu'ils ont entre 18 et 125 ans.
 
 Implémenter ce contrôle dans le schéma.
 

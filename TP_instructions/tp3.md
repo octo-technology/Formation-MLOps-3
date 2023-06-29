@@ -30,7 +30,7 @@ Les nouveautés sur cette branche sont les suivantes :
 
 Duration: 0:03:00
 
-Dans votre terminal, avec le bon environnement activé, lancer la commande:
+Dans votre terminal, avec le bon environnement activé, lancer la commande :
 
 ```shell
 pip install -r requirements.txt

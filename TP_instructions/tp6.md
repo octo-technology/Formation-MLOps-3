@@ -85,7 +85,7 @@ Duration: 0:10:00
 
 1. Modifier le fichier `locustfile.py` en remplaçant l'appel sur la route `/health` par un appel sur la route `/predict` avec les bons query parameters.
 
-   Par exemple : `/predict?education=PhD&age=12`
+   Par exemple : `/predict?education=PhD&age=12/income=1000`
 
 2. Arrêter et relancer locust dans votre terminal
 3. Réaliser un test de performance

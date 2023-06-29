@@ -44,7 +44,7 @@ Comme nous avons identifié une règle métier (l'inférence ne peut pas être n
 
 En utilisant `pandera` il est possible de contrôler également les outputs.
 
-Pour cela, décorer la fonction `predict_model` avec le décorateur:
+Pour cela, décorer la fonction `predict_model` avec le décorateur :
 
 ```python
 @pa.check_output(PredictionSchema)

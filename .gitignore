@@ -5,3 +5,4 @@ api_logfile.log
 mlruns/
 *.ipynb
 monitoring.db
+.ipynb_checkpoints

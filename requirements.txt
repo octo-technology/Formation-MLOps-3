@@ -10,7 +10,7 @@ mlflow==2.11.3
 
 # Data validation
 pandera==0.15.1
-deepchecks==0.17.3
+deepchecks==0.18.1
 wrapt==1.15.0
 
 # Database interaction

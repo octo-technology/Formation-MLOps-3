@@ -17,5 +17,6 @@ wrapt==1.15.0
 sqlalchemy==2.0.16
 psycopg2-binary==2.9.6
 
+email-validator-2.2.0
 # Notebook
 ipykernel==6.23.3

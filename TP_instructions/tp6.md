@@ -107,7 +107,7 @@ Duration: 0:03:00
 
 Comme idée d'amélioration, nous vous proposons :
 
-1. De charger le modèle au mariage de l'application plutôt qu'à chaque prédiction.
+1. De charger le modèle au démarrage de l'application plutôt qu'à chaque prédiction.
 2. D'augmenter le nombre de worker de votre API. Avec l'argument `workers` de `uvicorn.run`.
     - Attention, il faut désactiver auto-reload pour que cela ait un effet.
     - Attention, les modifications sur le fichier run.py concernent uvicorn, le `reload` n'aura pas d'impact. Il faut killer toute l'API.

@@ -25,3 +25,5 @@ psycopg2-binary==2.9.6
 
 # Notebook
 ipykernel==6.23.3
+
+email-validator-2.2.0
